@@ -5,23 +5,10 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Starter Julia
+  Serval website using Gatsby Starter Julia
 </h1>
 
 [GatsbyJS](https://www.gatsbyjs.org/) is a free and open source static website builder build on React. It's one implementation of the [JAMstack](https://jamstack.org/) idea which creates high speed webpages.
-
-## 📚 Features:
-* Landingpage
-* Blog overview page
-* Markdown sourcing from /content folder
-* Estimated reading time for each post
-* Styled components with emotion
-* Netlify deployment friendly
-* Nunito font included as npm module
-* Syntax highlighting with prismjs
-* Textmarkerstyle headings inspired by Basecamp
-* Site meta tags with React Helmet
-* Plugins for offline support
 
 
 ## 👨🏻‍💻 Customization
@@ -57,25 +44,26 @@ This Gatsby starter is built on top of the official [gatsby-starter-default](htt
 
 This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-1.  **Create a Gatsby site.**
+1.  **Install Gatsby-cli.**
 
-    Use the Gatsby CLI to create a new site, specifying the julia starter.
+    Assuming you have Node.js / npm.
 
     ```sh
-    # create a new Gatsby site using the julia starter
-    gatsby new julia-starter https://github.com/niklasmtj/gatsby-starter-julia
+    npm install -g gatsby-cli
+
     ```
 
-1.  **Start developing.**
+2.  **Start the project.**
 
-    Navigate into your new site’s directory and start it up.
+    Clone this repository and navigate into the site to start it up.
 
     ```sh
-    cd julia-starter/
+    git clone https://github.com/GuillaumeHaben/serval.git
+    cd serval/
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+3.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
@@ -136,13 +124,13 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 1. **`/components`**: Your React components can be defined here. You can include them from there in your pages.
 
-2. **`/content`**: The filesystem plugin is configured to get the `*.md` files from here. These will be published on the `/blog` page.
+2. **`/content`**: The filesystem plugin is configured to get the `*.md` files from here. These will be published on the `/news` and `projects` pages.
 
 3. **`/images`**: This directory is the home for your images that you can query via GraphQL since the filesystem plugin publish them there.
 
 4. **`/pages`**: Here is where your pages like `/blog`, `/about` and also the 404 page lives. An example of the basic structure can be found above.
 
-5. **`/templates`**: You will find the `blog-post.js` template there which defines how every blog-post page is structured.
+5. **`/templates`**: You will find the `news-post.js` and `project-posts.js` templates there which define how news and projects pages are structured.
 
 ## 🎓 Learning Gatsby
 
