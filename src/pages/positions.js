@@ -1,6 +1,4 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
@@ -12,29 +10,6 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
 `
 
-const ArticleDate = styled.h5`
-  display: inline;
-  color: #606060;
-  margin-bottom: 10px;
-`
-
-const MarkerHeader = styled.h3`
-  display: inline;
-  border-radius: 1em 0 1em 0;
-  margin-bottom: 10px;
-  background-image: linear-gradient(
-    -100deg,
-    rgba(255, 250, 150, 0.15),
-    rgba(255, 250, 150, 0.8) 100%,
-    rgba(255, 250, 150, 0.25)
-  );
-`
-
-const ReadingTime = styled.h5`
-  display: inline;
-  color: #606060;
-  margin-bottom: 10px;
-`
 
 const IndexPage = ({ data }) => {
   return (
@@ -42,6 +17,8 @@ const IndexPage = ({ data }) => {
       <SEO title="Open positions" />
       <Content>
         <h1>Open positions</h1>
+        <p>Thank you for your interest about opportunities in SerVal.</p>
+        <p>Currently we don't have any open positions but if you are interested in possible future opportunities please send your resume to <a href="mailto:michail.papadakis@uni.lu">michail.papadakis@uni.lu</a></p>
       </Content>
     </Layout>
   )

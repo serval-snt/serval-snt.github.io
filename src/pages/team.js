@@ -1,6 +1,4 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
@@ -12,36 +10,63 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
 `
 
-const ArticleDate = styled.h5`
-  display: inline;
-  color: #606060;
-  margin-bottom: 10px;
+const Row = styled.div`
+  display: flex;
 `
 
-const MarkerHeader = styled.h3`
-  display: inline;
-  border-radius: 1em 0 1em 0;
-  margin-bottom: 10px;
-  background-image: linear-gradient(
-    -100deg,
-    rgba(255, 250, 150, 0.15),
-    rgba(255, 250, 150, 0.8) 100%,
-    rgba(255, 250, 150, 0.25)
-  );
+const Column = styled.div `
+  flex: 50%;
 `
 
-const ReadingTime = styled.h5`
-  display: inline;
-  color: #606060;
-  margin-bottom: 10px;
-`
-
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Team" />
       <Content>
-        <h1>Team</h1>
+            <h1>Team</h1>
+        <Row>
+          <Column>
+            <h2>Faculty</h2>
+              <ul>
+                <li>Prof Dr Yves LE TRAON</li>
+              </ul>
+            <h2>Research Specialists</h2>
+              <ul>
+                <li>Dr Alexandre BARTEL</li>
+                <li>Dr Andrey BOYSTOV</li>
+                <li>Dr Renzo DEGIOVANNI</li>
+                <li>Dr Sankalp GHATPANDE</li>
+                <li>Dr Médéric HURIER</li>
+                <li>Dr Ludovic MOULINE</li>
+                <li>Dr Jérémy ROBERT</li>
+                <li>Dr Imen SAYAR</li>
+                <li>Dr Thierry TITCHEU CHEKAM</li>
+                <li>Dr Kui</li>
+              </ul>
+            </Column>
+          <Column>
+            <h2>Research Scientists</h2>
+              <ul>
+                <li>Dr Maxime CORDY</li>
+                <li>Dr Mike PAPADAKIS</li>
+              </ul>
+            <h2>Doctoral Researchers</h2>
+              <ul>
+                <li>Nikolaos ANTONIADIS</li>
+                <li>Paul-Lou BENEDICK</li>
+                <li>Aayush GARG</li>
+                <li>Salah GHAMIZI</li>
+                <li>Martin GUBRI</li>
+                <li>Guillaume HABEN</li>
+                <li>Ahmed KHANFIR</li>
+                <li>Niklas KOLBE</li>
+                <li>Wei MA</li>
+                <li>Milos OJDANIC</li>
+                <li>Renaud RWEMALIKA</li>
+                <li>Xavier SCHMITT</li>
+              </ul>
+            </Column>
+          </Row>
       </Content>
     </Layout>
   )
