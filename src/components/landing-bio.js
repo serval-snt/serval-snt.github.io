@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import Logo from "./logo"
 
 const Container = styled.div`
   text-align: center;
@@ -13,12 +14,6 @@ const OuterContainer = styled.div`
   justify-content: center;
   flex-direction: row;
   height: 78vh;
-`
-
-const Description = styled.p`
-  padding: 0;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
 `
 
 const NameHeader = styled.h1`
@@ -40,8 +35,7 @@ const LandingBio = () => (
     render={data => (
       <OuterContainer>
         <Container>
-          <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-          <Description>Software Developer</Description>
+          <Logo></Logo>
         </Container>
       </OuterContainer>
     )}

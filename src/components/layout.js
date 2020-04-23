@@ -18,6 +18,9 @@ const Content = styled.div`
   max-width: 860px;
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 `
 
 const GatsbyLink = styled.a`
@@ -27,6 +30,9 @@ const GatsbyLink = styled.a`
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
+`
+const Main = styled.main`
+  flex: 1;
 `
 
 const Layout = ({ children }) => (
@@ -42,9 +48,9 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
         <Content>
-          <main>{children}</main>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Main>{children}</Main>
           <Footer>
             © {new Date().getFullYear()}, Built with
             {` `}

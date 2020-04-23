@@ -1,8 +1,8 @@
 ---
 title: "Code Example"
-date: "2019-06-06"
+date: "2020-04-06"
 draft: false
-path: "/blog/code-example"
+path: "/projects/code-example"
 ---
 
 ## An Code example with PrismJS

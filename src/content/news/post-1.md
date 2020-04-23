@@ -1,8 +1,8 @@
 ---
-title: "Example Title"
-date: "2019-03-17"
+title: "Typography Example"
+date: "2020-04-23"
 draft: false
-path: "/blog/example-title"
+path: "/news/news_1"
 ---
 # H1
 

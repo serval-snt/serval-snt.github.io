@@ -6,14 +6,6 @@
 
 // You can delete this file if you're not using it
 
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -31,7 +23,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+  const newsPostTemplate = path.resolve(`src/templates/news-post.js`);
+  const projectsPostTemplate = path.resolve(`src/templates/projects-post.js`);
   return graphql(`
     {
       allMarkdownRemark {
@@ -52,10 +45,27 @@ exports.createPages = ({ graphql, actions }) => {
     if(result.errors) {
       return Promise.reject(result.errors)
     }
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const all = result.data.allMarkdownRemark.edges;
+
+    const news = all.filter(
+      edge => edge.node.frontmatter.path.startsWith("/news")
+    );
+    const projects = all.filter(
+      edge => edge.node.frontmatter.path.startsWith("/projects")
+    );
+    
+    news.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
-        component: blogPostTemplate,
+        component: newsPostTemplate,
+        slug: node.fields.slug,
+        context: {},
+      })
+    })
+    projects.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: projectsPostTemplate,
         slug: node.fields.slug,
         context: {},
       })

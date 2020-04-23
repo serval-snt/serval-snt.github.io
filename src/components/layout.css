@@ -7,6 +7,9 @@ body {
   font-family: 'Nunito', 'Avenir', 'Helvetica', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 article,
 aside,

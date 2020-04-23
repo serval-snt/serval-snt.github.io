@@ -1,16 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: `Julia Doe`,
-    description: `A minimal blog starter built with Gatsbyjs. The needed Gatsby files are included.`,
-    author: `@niklasmtj`,
+    title: `SerVal`,
+    description: `Website presenting our team, our research and our projects`,
+    author: `@GuillaumeHaben`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/content`,
+        name: `news`,
+        path: `${__dirname}/src/content/news`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/content/projects`,
       },
     },
     {

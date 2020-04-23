@@ -39,9 +39,9 @@ const ReadingTime = styled.h5`
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title="News" />
       <Content>
-        <h1>Blog</h1>
+        <h1>News</h1>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
@@ -74,7 +74,10 @@ export const query = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC },
+      filter: {fileAbsolutePath: {regex: "/(news)/.*.md$/"}}
+      ) {
       totalCount
       edges {
         node {
