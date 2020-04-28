@@ -3,6 +3,9 @@ import React from "react"
 import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
 
+import API from './api';
+
+
 const { DropDownEditor } = Editors;
 const measureTypes = [
   { id: "S1_School closing", value: "School & Universities" },
@@ -19,8 +22,8 @@ const countries = ["Afghanistan", "Angola", "Argentina", "Australia", "Austria",
   
 const columns = [
     { key: "measure", name: "Measure", editor: measureTypeEditor },
-    { key: "date", name: "Date" },
-    { key: "value", name: "Value" }
+    { key: "date", name: "Date", editable: true },
+    { key: "value", name: "Value", editable: true }
   ];
 
 
@@ -53,7 +56,10 @@ export default class Covid19Form extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Welcome ${this.state.firstName} ${this.state.lastName}!`)
+    API.post(`predict/`, { data: {measures:this.state.rows} })
+    .then(res => {
+    
+    })
   }
   render() {
     return (
