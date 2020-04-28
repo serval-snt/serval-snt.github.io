@@ -41,7 +41,7 @@ const IndexPage = () => {
                 <li>Dr Jérémy ROBERT</li>
                 <li>Dr Imen SAYAR</li>
                 <li>Dr Thierry TITCHEU CHEKAM</li>
-                <li>Dr Kui</li>
+                <li>Dr Kui LIU</li>
               </ul>
             </Column>
           <Column>
