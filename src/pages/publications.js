@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
       <Content>
         <h1>Publications</h1>
         <h3>Refereed Journal Articles</h3>
-        <iframe src="http://orbilu.uni.lu/widget?query=%28
+        <iframe src="https://orbilu.uni.lu/widget?query=%28
         %28author%3AYves LE TRAON%29+OR+
         %28author%3AAlexandre BARTEL%29+OR+
         %28author%3AAndrey BOYSTOV%29+OR+
@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
 
         <h3>Refereed Conference Articles</h3>
 
-        <iframe src="http://orbilu.uni.lu/widget?query=%28
+        <iframe src="https://orbilu.uni.lu/widget?query=%28
         %28author%3AYves LE TRAON%29+OR+
         %28author%3AAlexandre BARTEL%29+OR+
         %28author%3AAndrey BOYSTOV%29+OR+
@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
 
         <h3>Books and Book Chapters</h3>
 
-        <iframe src="http://orbilu.uni.lu/widget?query=%28
+        <iframe src="https://orbilu.uni.lu/widget?query=%28
         %28author%3AYves LE TRAON%29+OR+
         %28author%3AAlexandre BARTEL%29+OR+
         %28author%3AAndrey BOYSTOV%29+OR+
