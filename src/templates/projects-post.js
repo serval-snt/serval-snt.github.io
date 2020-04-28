@@ -23,7 +23,7 @@ const MarkedHeader = styled.h1`
 
 const HeaderDate = styled.h3`
   margin-top: 10px;
-  color: #000000;
+  color: #606060;
 `
 
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
       html
       excerpt(pruneLength: 160)
       frontmatter {
-        date(formatString: "DD MMMM, YYYY")
+        date(formatString: "MMMM, YYYY")
         path
         title
       }

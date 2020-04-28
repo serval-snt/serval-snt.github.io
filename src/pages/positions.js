@@ -17,8 +17,8 @@ const IndexPage = ({ data }) => {
       <SEO title="Open positions" />
       <Content>
         <h1>Open positions</h1>
-        <p>Thank you for your interest about opportunities in SerVal.</p>
-        <p>We will list open positions here. In the meantime, please send your resume to <a href="mailto:michail.papadakis@uni.lu">michail.papadakis@uni.lu</a></p>
+        <p>Thank you for your considering opportunities at SerVal.</p>
+        <p>We will list open positions here. In the meantime, feel free to send your resume to <a href="mailto:yves.letraon@uni.lu">yves.letraon@uni.lu</a></p>
       </Content>
     </Layout>
   )

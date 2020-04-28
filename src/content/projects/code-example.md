@@ -5,14 +5,14 @@ draft: false
 path: "/projects/code-example"
 ---
 
-## An Code example with PrismJS
+### An Code example with PrismJS
 Gatsby-Starter-Julia uses the Atom Editor Theme.
 
 ```js
 console.log("Hello World");
 ```
 
-## Default NodeJS server
+### Default NodeJS server
 
 ```js
 const http = require('http');
@@ -30,3 +30,7 @@ server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
+
+### Picture example 
+
+![Default Image](../../images/projects/code-example/sample.png)

@@ -78,9 +78,9 @@ const Header = ({ siteTitle }) => (
       <p>
         <HomeLink to="/">Home</HomeLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/news">News</NavLink>
+        {/* <NavLink to="/news">News</NavLink> */}
         <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/publications">Publications</NavLink>
+        {/* <NavLink to="/publications">Publications</NavLink> */}
         <NavLink to="/team">Team</NavLink>
         <NavLink to="/positions">Open positions</NavLink>
         <GitHubLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</GitHubLink>
