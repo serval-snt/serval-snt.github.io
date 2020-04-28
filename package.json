@@ -7,6 +7,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
     "gatsby": "^2.18.18",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-emotion": "^4.1.18",
@@ -25,6 +26,7 @@
     "prismjs": "^1.18.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-data-grid": "^7.0.0-canary.16",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-particles-js": "^2.7.0",
