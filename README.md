@@ -1,4 +1,3 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
@@ -8,37 +7,10 @@
   Serval website using Gatsby Starter Julia
 </h1>
 
-[GatsbyJS](https://www.gatsbyjs.org/) is a free and open source static website builder build on React. It's one implementation of the [JAMstack](https://jamstack.org/) idea which creates high speed webpages.
-
-
-## 👨🏻‍💻 Customization
-
-Create new pages like an About page in the `/pages` directory.
-The minimum code is: 
-
-```js
-import React from "react"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-const PageName = () => (
-  <Layout>
-    <SEO title="PageName" keywords={[`gatsby`, `application`, `react`]} />
-    //CONTENT HERE
-  </Layout>
-)
-
-export default PageName
-```
-
-To change the name on the landing page please modify the `title` in `gatsby-config.js`
-
-The Nunito typeface is included as a npm module in `gatsby-browser.js` and in `/components/layout.css`
-
+Repository consists in 2 branches.
+* **`Master`**: Generated static files to show using github pages.
+* **`Develop`**: The Gatsby project you want to work on.
 ___
-
-This Gatsby starter is built on top of the official [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default). You can find a quick start guide in the following lines. There are the most important files explained.
 
 ## 🚀 Quick start
 
@@ -58,8 +30,10 @@ This starter ships with the main Gatsby configuration files you might need to ge
     Clone this repository and navigate into the site to start it up.
 
     ```sh
-    git clone https://github.com/GuillaumeHaben/serval.git
-    cd serval/
+    git clone https://github.com/serval-snt/serval-snt.github.io
+    
+    cd serval-snt/
+    
     gatsby develop
     ```
 
@@ -69,7 +43,7 @@ This starter ships with the main Gatsby configuration files you might need to ge
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `julia-starter` directory in your code editor of choice and edit `src/pages/index.js` or `src/pages/blog.js`. Save your changes and the browser will update in real time!
+    Open the `serval-snt` directory in your code editor of choice. The browser will update changes you made in real time!
 
 ## 🧐 What's inside?
 
@@ -124,26 +98,19 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 1. **`/components`**: Your React components can be defined here. You can include them from there in your pages.
 
-2. **`/content`**: The filesystem plugin is configured to get the `*.md` files from here. These will be published on the `/news` and `projects` pages.
+2. **`/content`**: The filesystem plugin is configured to get the `*.md` files from here. These will be published on the `/news` and `/projects` pages.
 
 3. **`/images`**: This directory is the home for your images that you can query via GraphQL since the filesystem plugin publish them there.
 
-4. **`/pages`**: Here is where your pages like `/blog`, `/about` and also the 404 page lives. An example of the basic structure can be found above.
+4. **`/pages`**: Here is where your pages like `/news`, `/about` and also the 404 page lives. An example of the basic structure can be found above.
 
 5. **`/templates`**: You will find the `news-post.js` and `project-posts.js` templates there which define how news and projects pages are structured.
 
-## 🎓 Learning Gatsby
-
-Looking for more guidance? The perfect place to learn more about GatsbyJS is the [website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
 ## 💫 Deploy
 
-You can also directly deploy this starter via Netlify.
+Once you made changes you want to publish,
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/niklasmtj/gatsby-starter-julia)
+1. Commit the changes to the `develop` branch
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+2. Run `npm run deploy` from the `develop` branch to update the static contents on the `master` branch
