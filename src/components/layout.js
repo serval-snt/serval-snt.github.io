@@ -52,9 +52,8 @@ const Layout = ({ children }) => (
           <Header siteTitle={data.site.siteMetadata.title} />
           <Main>{children}</Main>
           <Footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <GatsbyLink href="https://www.gatsbyjs.org">Gatsby</GatsbyLink>
+            © {new Date().getFullYear()}, Serval-SnT University of Luxembourg
+            
           </Footer>
         </Content>
       </>

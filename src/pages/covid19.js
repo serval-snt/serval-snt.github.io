@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Covid19Component from "../components/covid19-form"
 
 const Content = styled.div`
   margin: 0 auto;
@@ -24,7 +25,7 @@ const IndexPage = () => {
       <SEO title="Covid19" />
       <Content>
             <h1>Covid19 Simulator</h1>
-        
+            <Covid19Component/>
       </Content>
     </Layout>
   )

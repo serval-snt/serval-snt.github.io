@@ -1,9 +1,38 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
 
 import API from './api';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DoneIcon from '@material-ui/icons/Done';
+import { withStyles } from '@material-ui/core/styles';
+
+
+const styles = theme => ({
+    fab: {
+        margin: theme.spacing.unit,
+        position: 'fixed',
+        bottom: theme.spacing.unit * 2,
+        right: theme.spacing.unit * 12,
+      },
+    fabDelete: {
+        margin: theme.spacing.unit,
+        position: 'fixed',
+        bottom: theme.spacing.unit * 2,
+        right: theme.spacing.unit * 20,
+      },
+      fabDone: {
+          margin: theme.spacing.unit,
+          position: 'fixed',
+          bottom: theme.spacing.unit * 2,
+          right: theme.spacing.unit * 2,
+        },
+      
+    });
 
 
 const { DropDownEditor } = Editors;
@@ -27,12 +56,16 @@ const columns = [
   ];
 
 
-export default class Covid19Form extends React.Component {
+class Covid19Form extends React.Component {
   
-
-  state = {
-    countryName: "Luxembourg",
-    rows: []
+constructor(props) {
+    super(props);
+        this.state = {
+        countryName: "Luxembourg",
+        rows: [],
+        selectedIndexes: [],
+        increment:0
+    }
   }
   handleInputChange = event => {
     const target = event.target
@@ -42,6 +75,30 @@ export default class Covid19Form extends React.Component {
       [name]: value,
     })
   }
+
+  handleNewMeasureClick = () => {
+    this.setState(previousState => ({
+        rows: [...previousState.rows, {id:previousState.increment, measure:"Workplaces",date:"2020-05-01",value:100}],
+        increment: previousState.increment +1 
+    }));
+
+  };
+
+  handleDeleteMeasureClick = () => {
+
+    var new_rows = []
+    for(var i=0;i<this.state.rows.length;i++){
+        if (this.state.selectedIndexes.indexOf(i)==-1){
+            new_rows.push(this.state.rows[i])
+        }
+    }
+    this.setState(previousState => ({
+        rows: new_rows,
+        selectedIndexes:[]
+    }));
+
+  };
+
 
   onGridRowsUpdated = ({ fromRow, toRow, updated }) => {
     this.setState(state => {
@@ -53,8 +110,25 @@ export default class Covid19Form extends React.Component {
     });
   };
 
+  onRowsSelected = rows => {
+    var selectedIdx =  rows.map(r => r.rowIdx)
+    this.setState({
+    selectedIndexes: this.state.selectedIndexes.concat(selectedIdx)
+    });
+  };
 
-  handleSubmit = event => {
+  onRowsDeselected = rows => {
+    let rowIndexes = rows.map(r => r.rowIdx);
+    this.setState({
+      selectedIndexes: this.state.selectedIndexes.filter(
+        i => rowIndexes.indexOf(i) === -1
+      )
+    });
+  };
+
+
+
+  onHandleSubmit = event => {
     event.preventDefault()
     API.post(`predict/`, { data: {measures:this.state.rows} })
     .then(res => {
@@ -62,26 +136,64 @@ export default class Covid19Form extends React.Component {
     })
   }
   render() {
+    const { classes } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
+        <label>Country:  
         <select>
-        {countries.map(({ c }) => (
+        {countries.map((c) => (
             <option value="{{c}}">{c}</option>
         ))}
-        </select>
 
+        </select>
+        <br/><br/>
+        
+        </label>
+
+        <label>Measures selection:
         <div>
             <ReactDataGrid
             columns={columns}
+            rowKey="id"
             rowGetter={i => this.state.rows[i]}
-            rowsCount={3}
+            rowsCount={this.state.rows.length}
             onGridRowsUpdated={this.onGridRowsUpdated}
-            enableCellSelect={true}
+            rowSelection={{
+                showCheckbox: true,
+                onRowsSelected: this.onRowsSelected,
+                onRowsDeselected: this.onRowsDeselected,
+                selectBy: {
+                    indexes: this.state.selectedIndexes
+                  }
+              }}
+            
+            enableCellSelect={true}  
             />
         </div>
-        
-        <button type="submit">Submit</button>
+        </label>
+
+        <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleNewMeasureClick}>
+          <DoneIcon />
+        </Fab>
+
+        <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
+          <AddIcon />
+        </Fab>
+
+        <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
+          <DeleteIcon  />
+        </Fab>
+
       </form>
     )
   }
 }
+
+Covid19Form.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+  
+  const Covid19Component = withStyles(styles)(Covid19Form);
+  
+  export default Covid19Component
