@@ -39,10 +39,10 @@ const { DropDownEditor } = Editors;
 const measureTypes = [
   { id: "S1_School closing", value: "School & Universities" },
   { id: "S7_International travel controls", value: "International travels" },
-  { id: "parks", value: "Parks & Open air activities" },
+  { id: "parks", value: "Parks & outdoor activities" },
   { id: "grocery/pharmacy", value: "Essential groceries" },
   { id: "transit_stations", value: "Public transport" },
-  { id: "retail/recreation", value: "Retails & Recreation" },
+  { id: "retail/recreation", value: "Retail & Recreation" },
   { id: "workplace", value: "Workplaces" }
 ];
 
@@ -64,7 +64,12 @@ constructor(props) {
         countryName: "Luxembourg",
         rows: [],
         selectedIndexes: [],
-        increment:0
+        increment:0,
+        reproduction_path:"",
+        case_path:"",
+        hospital_path:"",
+        critical_path:"",
+        death_path:""
     }
   }
   handleInputChange = event => {
@@ -78,7 +83,7 @@ constructor(props) {
 
   handleNewMeasureClick = () => {
     this.setState(previousState => ({
-        rows: [...previousState.rows, {id:previousState.increment, measure:"Workplaces",date:"2020-05-01",value:100}],
+        rows: [...previousState.rows, {id:previousState.increment, measure:"Workplaces",date:"2020-05-11",value:100}],
         increment: previousState.increment +1 
     }));
 
@@ -128,63 +133,84 @@ constructor(props) {
 
 
 
-  onHandleSubmit = event => {
-    event.preventDefault()
-    API.post(`predict/`, { data: {measures:this.state.rows} })
+  handleSubmit = () => {
+
+    var measures = this.state.rows.map(e => e.measure)
+    var dates = this.state.rows.map(e => e.date)
+    var values = this.state.rows.map(e => parseInt(e.value)-100)
+
+    API.post(`predict/`, { data: {country_name:this.state.countryName,measures:measures,dates:dates,values:values} })
     .then(res => {
-    
+        this.setState({
+            reproduction_path:API.baseURL+"sims/rate/"+ res.path,
+            case_path:API.baseURL+"sims/case/"+ res.path,
+            hospital_path:API.baseURL+"sims/hospital/"+ res.path,
+            critical_path:API.baseURL+"sims/critical/"+ res.path,
+            death_path:API.baseURL+"sims/death/"+ res.path,
+        })
     })
   }
   render() {
     const { classes } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Country:  
-        <select>
-        {countries.map((c) => (
-            <option value="{{c}}">{c}</option>
-        ))}
-
-        </select>
-        <br/><br/>
-        
-        </label>
-
-        <label>Measures selection:
         <div>
-            <ReactDataGrid
-            columns={columns}
-            rowKey="id"
-            rowGetter={i => this.state.rows[i]}
-            rowsCount={this.state.rows.length}
-            onGridRowsUpdated={this.onGridRowsUpdated}
-            rowSelection={{
-                showCheckbox: true,
-                onRowsSelected: this.onRowsSelected,
-                onRowsDeselected: this.onRowsDeselected,
-                selectBy: {
-                    indexes: this.state.selectedIndexes
-                  }
-              }}
-            
-            enableCellSelect={true}  
-            />
-        </div>
-        </label>
+            <form onSubmit={this.handleSubmit}>
+                <label>Country:  
+                <select>
+                {countries.map((c) => (
+                    <option value="{{c}}">{c}</option>
+                ))}
 
-        <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleNewMeasureClick}>
-          <DoneIcon />
-        </Fab>
+                </select>
+                <br/><br/>
+                
+                </label>
 
-        <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
-          <AddIcon />
-        </Fab>
+                <label>Measures selection:
+                <div>
+                    <ReactDataGrid
+                    columns={columns}
+                    rowKey="id"
+                    rowGetter={i => this.state.rows[i]}
+                    rowsCount={this.state.rows.length}
+                    onGridRowsUpdated={this.onGridRowsUpdated}
+                    rowSelection={{
+                        showCheckbox: true,
+                        onRowsSelected: this.onRowsSelected,
+                        onRowsDeselected: this.onRowsDeselected,
+                        selectBy: {
+                            indexes: this.state.selectedIndexes
+                        }
+                    }}
+                    
+                    enableCellSelect={true}  
+                    />
+                </div>
+                </label>
 
-        <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
-          <DeleteIcon  />
-        </Fab>
+                
 
-      </form>
+            </form>
+            <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleSubmit}>
+            <DoneIcon />
+            </Fab>
+
+            <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
+            <AddIcon />
+            </Fab>
+
+            <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
+            <DeleteIcon  />
+            </Fab>
+
+
+            {this.state.reproduction_path !="" &&<img src={this.state.reproduction_path} alt=""/>}
+            {this.state.case_path !="" &&<img src={this.state.case_path} alt=""/>}
+            {this.state.hospital_path !="" &&<img src={this.state.hospital_path} alt=""/>}
+            {this.state.critical_path !="" &&<img src={this.state.critical_path} alt=""/>}
+            {this.state.death_path !="" &&<img src={this.state.death_path} alt=""/>}
+      
+      </div>
     )
   }
 }
