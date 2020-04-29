@@ -15,7 +15,6 @@ import "./layout.css"
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
   padding: 0 1.0875rem 1rem;
   padding-top: 0;
   display: flex;
