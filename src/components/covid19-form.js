@@ -93,7 +93,7 @@ constructor(props) {
 
     var new_rows = []
     for(var i=0;i<this.state.rows.length;i++){
-        if (this.state.selectedIndexes.indexOf(i)==-1){
+        if (this.state.selectedIndexes.indexOf(i) === -1){
             new_rows.push(this.state.rows[i])
         }
     }
@@ -204,11 +204,11 @@ constructor(props) {
             </Fab>
 
 
-            {this.state.reproduction_path !="" &&<img src={this.state.reproduction_path} alt=""/>}
-            {this.state.case_path !="" &&<img src={this.state.case_path} alt=""/>}
-            {this.state.hospital_path !="" &&<img src={this.state.hospital_path} alt=""/>}
-            {this.state.critical_path !="" &&<img src={this.state.critical_path} alt=""/>}
-            {this.state.death_path !="" &&<img src={this.state.death_path} alt=""/>}
+            {this.state.reproduction_path !== "" &&<img src={this.state.reproduction_path} alt=""/>}
+            {this.state.case_path !== "" &&<img src={this.state.case_path} alt=""/>}
+            {this.state.hospital_path !== "" &&<img src={this.state.hospital_path} alt=""/>}
+            {this.state.critical_path !== "" &&<img src={this.state.critical_path} alt=""/>}
+            {this.state.death_path !== "" &&<img src={this.state.death_path} alt=""/>}
       
       </div>
     )

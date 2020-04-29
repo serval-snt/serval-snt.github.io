@@ -23,10 +23,6 @@ const Content = styled.div`
   flex-direction: column;
 `
 
-const GatsbyLink = styled.a`
-  margin-left: 5px;
-`
-
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
