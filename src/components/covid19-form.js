@@ -35,7 +35,7 @@ const styles = theme => ({
       
     });
 
-const baseURL=`http://35.241.156.147:8080/`
+const baseURL=`https://cors-anywhere.herokuapp.com/http://35.241.156.147:8080/`
 
 const { DropDownEditor } = Editors;
 const measureTypes = [
