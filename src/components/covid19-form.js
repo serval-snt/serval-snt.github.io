@@ -9,6 +9,10 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
+
+import Grid from '@material-ui/core/Grid';
+
+
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -34,6 +38,7 @@ const styles = theme => ({
       
     });
 
+const baseURL=`http://35.241.156.147:8080/`
 
 const { DropDownEditor } = Editors;
 const measureTypes = [
@@ -131,86 +136,105 @@ constructor(props) {
     });
   };
 
-
+  changeName = (event) => {
+     this.setState({countryName: event.target.value});
+  }
 
   handleSubmit = () => {
 
-    var measures = this.state.rows.map(e => e.measure)
+    var measureTypes_id = measureTypes.map(e => e.id)
+    var measureTypes_values = measureTypes.map(e => e.value)
+
+    var measures = this.state.rows.map(e => measureTypes_id[measureTypes_values.indexOf(e.measure)])
     var dates = this.state.rows.map(e => e.date)
     var values = this.state.rows.map(e => parseInt(e.value)-100)
 
-    API.post(`predict/`, { data: {country_name:this.state.countryName,measures:measures,dates:dates,values:values} })
-    .then(res => {
-        this.setState({
-            reproduction_path:API.baseURL+"sims/rate/"+ res.path,
-            case_path:API.baseURL+"sims/case/"+ res.path,
-            hospital_path:API.baseURL+"sims/hospital/"+ res.path,
-            critical_path:API.baseURL+"sims/critical/"+ res.path,
-            death_path:API.baseURL+"sims/death/"+ res.path,
+    this.setState({
+            reproduction_path:"",
+            case_path:"",
+            hospital_path:"",
+            critical_path:"",
+            death_path:""
         })
+
+    API.post(`predict`, { country_name:this.state.countryName,measures:measures,dates:dates,values:values} )
+    .then(res => {
+
+        this.setState({
+            reproduction_path:baseURL+"sims/rate/"+ res.data.path,
+            case_path:baseURL+"sims/case/"+ res.data.path,
+            hospital_path:baseURL+"sims/hospital/"+ res.data.path,
+            critical_path:baseURL+"sims/critical/"+ res.data.path,
+            death_path:baseURL+"sims/death/"+ res.data.path,
+        })
+        console.log(res.data.path,this.state)
     })
   }
   render() {
     const { classes } = this.props;
     return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <label>Country:  
-                <select>
-                {countries.map((c) => (
-                    <option value="{{c}}">{c}</option>
-                ))}
-
-                </select>
-                <br/><br/>
-                
-                </label>
-
-                <label>Measures selection:
-                <div>
-                    <ReactDataGrid
-                    columns={columns}
-                    rowKey="id"
-                    rowGetter={i => this.state.rows[i]}
-                    rowsCount={this.state.rows.length}
-                    onGridRowsUpdated={this.onGridRowsUpdated}
-                    rowSelection={{
-                        showCheckbox: true,
-                        onRowsSelected: this.onRowsSelected,
-                        onRowsDeselected: this.onRowsDeselected,
-                        selectBy: {
-                            indexes: this.state.selectedIndexes
-                        }
-                    }}
-                    
-                    enableCellSelect={true}  
-                    />
-                </div>
-                </label>
-
-                
-
-            </form>
-            <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleSubmit}>
-            <DoneIcon />
-            </Fab>
-
-            <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
-            <AddIcon />
-            </Fab>
-
-            <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
-            <DeleteIcon  />
-            </Fab>
+        <Grid container spacing={3}>
+            <Grid item xs={4}>
 
 
-            {this.state.reproduction_path !="" &&<img src={this.state.reproduction_path} alt=""/>}
-            {this.state.case_path !="" &&<img src={this.state.case_path} alt=""/>}
-            {this.state.hospital_path !="" &&<img src={this.state.hospital_path} alt=""/>}
-            {this.state.critical_path !="" &&<img src={this.state.critical_path} alt=""/>}
-            {this.state.death_path !="" &&<img src={this.state.death_path} alt=""/>}
-      
-      </div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>Country:
+                    <select onChange={this.changeName} value={this.state.countryName}>
+                    {countries.map((c) => (
+                        <option value={c}>{c}</option>
+                    ))}
+
+                    </select>
+                    <br/><br/>
+
+                    </label>
+
+                    <label>Measures selection:
+                    <div>
+                        <ReactDataGrid
+                        columns={columns}
+                        rowKey="id"
+                        rowGetter={i => this.state.rows[i]}
+                        rowsCount={this.state.rows.length}
+                        onGridRowsUpdated={this.onGridRowsUpdated}
+                        rowSelection={{
+                            showCheckbox: true,
+                            onRowsSelected: this.onRowsSelected,
+                            onRowsDeselected: this.onRowsDeselected,
+                            selectBy: {
+                                indexes: this.state.selectedIndexes
+                            }
+                        }}
+
+                        enableCellSelect={true}
+                        />
+                    </div>
+                    </label>
+
+
+
+                </form>
+                <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleSubmit}>
+                <DoneIcon />
+                </Fab>
+
+                <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
+                <AddIcon />
+                </Fab>
+
+                <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
+                <DeleteIcon  />
+                </Fab>
+            </Grid>
+            <Grid item xs={8}>
+
+                {this.state.reproduction_path !="" &&<img src={this.state.reproduction_path} alt=""/>}
+                {this.state.case_path !="" &&<img src={this.state.case_path} alt=""/>}
+                {this.state.hospital_path !="" &&<img src={this.state.hospital_path} alt=""/>}
+                {this.state.critical_path !="" &&<img src={this.state.critical_path} alt=""/>}
+                {this.state.death_path !="" &&<img src={this.state.death_path} alt=""/>}
+            </Grid>
+      </Grid>
     )
   }
 }

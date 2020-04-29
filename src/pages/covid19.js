@@ -7,7 +7,7 @@ import Covid19Component from "../components/covid19-form"
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
+  max-width: 2000px;
   padding: 1.45rem 1.0875rem;
 `
 
