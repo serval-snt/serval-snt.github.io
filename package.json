@@ -11,6 +11,7 @@
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.19.2",
+    "d3-timeseries": "^1.0.1",
     "gatsby": "^2.18.18",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-emotion": "^4.1.18",
@@ -33,6 +34,7 @@
     "react-data-grid-addons": "^6.1.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-loader-spinner": "^3.1.14",
     "react-particles-js": "^2.7.0",
     "typeface-nunito": "0.0.72"
   },

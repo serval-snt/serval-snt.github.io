@@ -5,13 +5,15 @@ import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
 
 import API from './api';
+import Chart from "./chart"
+
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-
+import Loader from 'react-loader-spinner';
 
 const styles = theme => ({
     fab: {
@@ -71,7 +73,9 @@ constructor(props) {
         case_path:"",
         hospital_path:"",
         critical_path:"",
-        death_path:""
+        death_path:"",
+        data_json:"",
+        loading:false
     }
   }
   handleInputChange = event => {
@@ -151,18 +155,18 @@ constructor(props) {
             case_path:"",
             hospital_path:"",
             critical_path:"",
-            death_path:""
+            death_path:"",
+            loading:true
         })
 
     API.post(`predict`, { country_name:this.state.countryName,measures:measures,dates:dates,values:values} )
     .then(res => {
 
+        var df = res.data.df
+        df.forEach(entry => entry.Date = new Date(entry.Date));
         this.setState({
-            reproduction_path:baseURL+"sims/rate/"+ res.data.path,
-            case_path:baseURL+"sims/case/"+ res.data.path,
-            hospital_path:baseURL+"sims/hospital/"+ res.data.path,
-            critical_path:baseURL+"sims/critical/"+ res.data.path,
-            death_path:baseURL+"sims/death/"+ res.data.path,
+            data_json:df,
+            loading:false
         })
         console.log(res.data.path,this.state)
     })
@@ -172,10 +176,11 @@ constructor(props) {
     return (
         <Grid container spacing={3}>
             <Grid item xs={4}>
-
+              <h2>By Serval & Trux research groups</h2>
+              <h2>@SnT-University of Luxembourg</h2>
 
                 <form onSubmit={this.handleSubmit}>
-                    <label>Country:
+                    <label>Country: 
                     <select onChange={this.changeName} value={this.state.countryName}>
                     {countries.map((c) => (
                         <option value={c}>{c}</option>
@@ -225,6 +230,19 @@ constructor(props) {
             </Grid>
             <Grid item xs={8}>
 
+                {this.state.loading &&
+                <div
+                 style={{
+                    width: "100%",
+                    height: "100",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                > <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
+                </div>
+                }
+                {this.state.data_json && <Chart data={this.state.data_json} />}
                 {this.state.reproduction_path !== "" &&<img src={this.state.reproduction_path} alt=""/>}
                 {this.state.case_path !== "" &&<img src={this.state.case_path} alt=""/>}
                 {this.state.hospital_path !== "" &&<img src={this.state.hospital_path} alt=""/>}

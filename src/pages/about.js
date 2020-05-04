@@ -5,8 +5,9 @@ import SEO from "../components/seo"
 import styled from "@emotion/styled"
 
 const Content = styled.div`
+  margin: 0 auto;
   max-width: 860px;
-  padding: 1rem 1.0875rem;
+  padding: 1.45rem 1.0875rem;
   font-size: 1.2rem;
   text-align: justify;
 `
