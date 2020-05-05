@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
+import GridDatePicker from "./griddatepicker"
 
 import API from './api';
 import Chart from "./chart"
@@ -55,7 +56,7 @@ const countries = ["Afghanistan", "Angola", "Argentina", "Australia", "Austria",
   
 const columns = [
     { key: "measure", name: "Measure", editor: measureTypeEditor },
-    { key: "date", name: "Date", editable: true },
+    { key: "date", name: "Date", editable: true, editor: <GridDatePicker /> },
     { key: "value", name: "Value", editable: true }
   ];
 
