@@ -19,7 +19,6 @@ class GridDatePicker extends Component {
   }
 
   setDate(date) {
-    console.log(date)
     this.setState(
       {value: date},
       () => this.props.onCommit() 
