@@ -78,9 +78,9 @@ export default function ()  {
     } else {
       // translate curvenames
       serie.options.interpolate = (
-        serie.options.interpolate == 'monotone' ? 'monotoneX'
-          : serie.options.interpolate == 'step-after' ? 'stepAfter'
-            : serie.options.interpolate == 'step-before' ? 'stepBefore'
+        serie.options.interpolate === 'monotone' ? 'monotoneX'
+          : serie.options.interpolate === 'step-after' ? 'stepAfter'
+            : serie.options.interpolate === 'step-before' ? 'stepBefore'
               : serie.options.interpolate
       );
     }
@@ -136,12 +136,12 @@ export default function ()  {
     serie.find = function (date) {
       var bisect = d3.bisector(fk(aes.x)).left;
       var i = bisect(serie.data, date) - 1;
-      if (i == -1) {
+      if (i === -1) {
         return null;
       }
 
       // look to far after serie is defined
-      if (i == serie.data.length - 1 && serie.data.length > 1 &&
+      if (i === serie.data.length - 1 && serie.data.length > 1 &&
    Number(date) - Number(serie.data[i][aes.x]) > Number(serie.data[i][aes.x]) - Number(serie.data[i - 1][aes.x])) {
         return null;
       }
@@ -161,11 +161,11 @@ export default function ()  {
         .attr('fill', 'none');
 
       if (serie.options.dashed)  {
-        if (serie.options.dashed == true || serie.options.dashed == 'dashed')  {
+        if (serie.options.dashed === true || serie.options.dashed === 'dashed')  {
           serie['stroke-dasharray'] = '5,5';
-        } else if (serie.options.dashed == 'long') {
+        } else if (serie.options.dashed === 'long') {
           serie['stroke-dasharray'] = '10,10';
-        } else if (serie.options.dashed == 'dot') {
+        } else if (serie.options.dashed === 'dot') {
           serie['stroke-dasharray'] = '2,4';
         } else {
           serie['stroke-dasharray'] = serie.options.dashed;
@@ -334,7 +334,7 @@ export default function ()  {
       // for showing 0 :
       // chart.addSerie(...)
       //    .yscale.domain([0])
-      if (yscale.fixedomain.length == 1) {
+      if (yscale.fixedomain.length === 1) {
         yscale.fixedomain.push(yscale.domain()[1]);
       }
       yscale.domain(yscale.fixedomain);
