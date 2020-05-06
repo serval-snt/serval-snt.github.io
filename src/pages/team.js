@@ -30,12 +30,14 @@ const IndexPage = () => {
               <ul>
                 <li>Prof Dr Yves LE TRAON</li>
               </ul>
-            <h2>Research Specialists</h2>
+            <h2>Research Associates</h2>
               <ul>
                 <li>Dr Alexandre BARTEL</li>
                 <li>Dr Andrey BOYSTOV</li>
                 <li>Dr Renzo DEGIOVANNI</li>
                 <li>Dr Sankalp GHATPANDE</li>
+                <li>Yuejun GUO</li>
+                <li>Dr Sarra HABCHI</li>
                 <li>Dr Médéric HURIER</li>
                 <li>Dr Ludovic MOULINE</li>
                 <li>Dr Jérémy ROBERT</li>
