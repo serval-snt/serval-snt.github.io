@@ -57,13 +57,21 @@ export default function ()  {
   };
   xscale.setformat = xscale.tickFormat();
 
+  var _tooltip_value = function(d) {
+    if(d.aes.ci_down && d.aes.ci_up){
+      return yscale.setformat(d.item[d.aes.y]) + ' (' + yscale.setformat(d.item[d.aes.ci_down])  + ' - ' + yscale.setformat(d.item[d.aes.ci_up]) + ')';
+    }
+    
+    return yscale.setformat(d.item[d.aes.y]);
+  }
+
   // default tool tip function
   var _tipFunction = function (date, series) {
     var spans = '<table style="border:none">' + series.filter(function (d) {
       return d.item !== undefined && d.item !== null;
     }).map(function (d) {
       return '<tr><td style="color:' + d.options.color + '">' + d.options.label + ' </td>' +
-  '<td style="color:#333333;text-align:right">' + yscale.setformat(d.item[d.aes.y]) + '</td></tr>';
+  '<td style="color:#333333;text-align:right">' + _tooltip_value(d) + '</td></tr>';
     }).join('') + '</table>';
 
     return '<h4>' + xscale.setformat(d3.timeDay(date)) + '</h4>' + spans;

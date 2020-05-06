@@ -21,19 +21,19 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         position: 'fixed',
         bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 12,
+        left: theme.spacing.unit * 12,
       },
     fabDelete: {
         margin: theme.spacing.unit,
         position: 'fixed',
         bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 20,
+        left: theme.spacing.unit * 20,
       },
       fabDone: {
           margin: theme.spacing.unit,
           position: 'fixed',
           bottom: theme.spacing.unit * 2,
-          right: theme.spacing.unit * 2,
+          left: theme.spacing.unit * 2,
         },
       
     });
@@ -211,19 +211,17 @@ constructor(props) {
                         />
                     </div>
                     </label>
-
-
-
                 </form>
-                <Fab color="secondary" aria-label="Next" className={classes.fabDone} onClick={this.handleSubmit}>
+
+                <Fab color="secondary" aria-label="Next" style={{zIndex:1000}} className={classes.fabDone} onClick={this.handleSubmit}>
                 <DoneIcon />
                 </Fab>
 
-                <Fab color="primary" aria-label="Add" className={classes.fab} onClick={this.handleNewMeasureClick}>
+                <Fab color="primary" aria-label="Add" style={{zIndex:1000}} className={classes.fab} onClick={this.handleNewMeasureClick}>
                 <AddIcon />
                 </Fab>
 
-                <Fab aria-label="Delete" className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
+                <Fab aria-label="Delete" style={{zIndex:1000}} className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
                 <DeleteIcon  />
                 </Fab>
             </Grid>
