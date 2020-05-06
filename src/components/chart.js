@@ -1,7 +1,9 @@
 import React from "react"
-import d3_timeseries from "d3-timeseries"
+import d3_timeseries from "./timeseries/d3_timeseries"
 import Button from '@material-ui/core/Button';
 import styled from "@emotion/styled"
+
+import "./timeseries/d3_timeseries.css"
 
 const Toggler = styled.div`
   display: flex;
