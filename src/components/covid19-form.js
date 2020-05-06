@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types';
+import styled from "@emotion/styled"
 
 import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
@@ -15,6 +16,11 @@ import DoneIcon from '@material-ui/icons/Done';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Loader from 'react-loader-spinner';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Select from '@material-ui/core/Select';
 
 const styles = theme => ({
     fab: {
@@ -37,6 +43,11 @@ const styles = theme => ({
         },
       
     });
+
+const HeaderAuthors = styled.h3`
+  margin-top: 10px;
+  color: #606060;
+`
 
 const { DropDownEditor } = Editors;
 const measureTypes = [
@@ -160,7 +171,6 @@ constructor(props) {
 
     API.post(`predict`, { country_name:this.state.countryName,measures:measures,dates:dates,values:values} )
     .then(res => {
-
         var df = res.data.df
         df.forEach(entry => entry.Date = new Date(entry.Date));
         this.setState({
@@ -174,44 +184,39 @@ constructor(props) {
     const { classes } = this.props;
     return (
         <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
+          </Grid>
             <Grid item xs={4}>
-              <h2>By Serval & Trux research groups</h2>
-              <h2>@SnT-University of Luxembourg</h2>
-
-                <form onSubmit={this.handleSubmit}>
-                    <label>Country: 
-                    <select onChange={this.changeName} value={this.state.countryName}>
+                <FormControl onSubmit={this.handleSubmit} fullWidth={true}>
+                    <InputLabel>Country</InputLabel>
+                    <Select 
+                      onChange={this.changeName} 
+                      value={this.state.countryName}
+                    >
                     {countries.map((c) => (
-                        <option value={c}>{c}</option>
+                      <MenuItem value={c}>{c}</MenuItem>
                     ))}
-
-                    </select>
-                    <br/><br/>
-
-                    </label>
-
-                    <label>Measures selection:
-                    <div>
-                        <ReactDataGrid
-                        columns={columns}
-                        rowKey="id"
-                        rowGetter={i => this.state.rows[i]}
-                        rowsCount={this.state.rows.length}
-                        onGridRowsUpdated={this.onGridRowsUpdated}
-                        rowSelection={{
-                            showCheckbox: true,
-                            onRowsSelected: this.onRowsSelected,
-                            onRowsDeselected: this.onRowsDeselected,
-                            selectBy: {
-                                indexes: this.state.selectedIndexes
-                            }
-                        }}
-
-                        enableCellSelect={true}
-                        />
-                    </div>
-                    </label>
-                </form>
+                    </Select>
+                    <FormHelperText>Select a country to run your simulation in</FormHelperText>
+                    <br/>
+                    <ReactDataGrid
+                    columns={columns}
+                    rowKey="id"
+                    rowGetter={i => this.state.rows[i]}
+                    rowsCount={this.state.rows.length}
+                    onGridRowsUpdated={this.onGridRowsUpdated}
+                    rowSelection={{
+                        showCheckbox: true,
+                        onRowsSelected: this.onRowsSelected,
+                        onRowsDeselected: this.onRowsDeselected,
+                        selectBy: {
+                            indexes: this.state.selectedIndexes
+                        }
+                    }}
+                    enableCellSelect={true}
+                    />
+                </FormControl>
 
                 <Fab color="secondary" aria-label="Next" style={{zIndex:1000}} className={classes.fabDone} onClick={this.handleSubmit}>
                 <DoneIcon />
@@ -226,17 +231,17 @@ constructor(props) {
                 </Fab>
             </Grid>
             <Grid item xs={8}>
-
                 {this.state.loading &&
                 <div
                  style={{
                     width: "100%",
-                    height: "100",
+                    height: "100%",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center"
                   }}
-                > <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
+                >
+                  <Loader type="ThreeDots" color="#54257c" height="100" width="100" />
                 </div>
                 }
                 {this.state.data_json && <Chart data={this.state.data_json} />}
