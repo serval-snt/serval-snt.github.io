@@ -47,6 +47,7 @@ class GridDatePicker extends Component {
   render() {
     return (
       <DatePicker
+        inline
         showPopperArrow={false}
         dateFormat="yyyy-MM-dd"
         selected={this.state.value}
