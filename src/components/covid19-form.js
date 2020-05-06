@@ -38,8 +38,6 @@ const styles = theme => ({
       
     });
 
-const baseURL=`https://cors-anywhere.herokuapp.com/http://35.241.156.147:8080/`
-
 const { DropDownEditor } = Editors;
 const measureTypes = [
   { id: "S1_School closing", value: "School & Universities" },
