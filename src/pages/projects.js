@@ -36,7 +36,22 @@ const IndexPage = ({ data }) => {
       <SEO title="Projects" />
       <Content>
         <h1>Projects</h1>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div key="0">
+            <Link
+              to={"covid19"}
+              css={css`
+                text-decoration: none;
+                color: inherit;
+              `}
+            >
+              <MarkerHeader>COVID-19 Adaptive Exit Strategies</MarkerHeader>
+              <div>
+                <ArticleDate>May, 2020</ArticleDate>
+              </div>
+              <p>Research project enabling simulations of various scenarios regarding lockdown exit strategies during COVID 19 crisis.</p>
+            </Link>
+          </div>
+        {/* {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
               to={node.frontmatter.path}
@@ -52,7 +67,7 @@ const IndexPage = ({ data }) => {
               <p>{node.excerpt}</p>
             </Link>
           </div>
-        ))}
+        ))} */}
       </Content>
     </Layout>
   )
