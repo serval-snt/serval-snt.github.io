@@ -26,7 +26,7 @@ class GridDatePicker extends Component {
   }
 
   getValue = () => {  
-    return { date: moment(this.state.value).format('YYYY-MM-DD') };
+    return { [this.props.column.key]: moment(this.state.value).format('YYYY-MM-DD') };
   }
 
   getStyle = () => {

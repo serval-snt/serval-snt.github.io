@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactDataGrid from "react-data-grid";
 import { Editors } from "react-data-grid-addons";
 import GridDatePicker from "./griddatepicker"
+import GridRangeValues from "./gridrangevalue"
 
 import API from './api';
 import Chart from "./chart"
@@ -18,22 +19,22 @@ import Loader from 'react-loader-spinner';
 
 const styles = theme => ({
     fab: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         position: 'fixed',
-        bottom: theme.spacing.unit * 2,
-        left: theme.spacing.unit * 12,
+        bottom: theme.spacing(2),
+        left: theme.spacing(12),
       },
     fabDelete: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         position: 'fixed',
-        bottom: theme.spacing.unit * 2,
-        left: theme.spacing.unit * 20,
+        bottom: theme.spacing(2),
+        left: theme.spacing(20),
       },
       fabDone: {
-          margin: theme.spacing.unit,
+          margin: theme.spacing(1),
           position: 'fixed',
-          bottom: theme.spacing.unit * 2,
-          left: theme.spacing.unit * 2,
+          bottom: theme.spacing(2),
+          left: theme.spacing(2),
         },
       
     });
@@ -55,7 +56,7 @@ const countries = ["Afghanistan", "Angola", "Argentina", "Australia", "Austria",
 const columns = [
     { key: "measure", name: "Measure", editor: measureTypeEditor },
     { key: "date", name: "Date", editable: true, editor: <GridDatePicker /> },
-    { key: "value", name: "Value", editable: true }
+    { key: "value", name: "Value", editable: true, editor: <GridRangeValues min={0} max={100} /> }
   ];
 
 
