@@ -16,7 +16,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Covid19" />
       <Content>
-            <h1>Covid19 Simulator</h1>
+            <h1>COVID-19 Adaptive Exit Strategies</h1>
             <LoadableCovid/>
       </Content>
     </Layout>
