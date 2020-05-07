@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{"4IYq":function(t,a,n){"use strict";n.r(a);var e=n("wTIg"),i=(n("q1tI"),n("Bl7J")),u=n("vrFN"),b=n("qKvR"),c=Object(e.a)("div",{target:"e1q6xuga0"})({name:"hu0znc",styles:"margin:0 auto;max-width:860px;padding:1.45rem 1.0875rem;"});a.default=function(t){t.data;return Object(b.b)(i.a,null,Object(b.b)(u.a,{title:"Publications"}),Object(b.b)(c,null,Object(b.b)("h1",null,"Publications")))}}}]);
-//# sourceMappingURL=component---src-pages-publications-js-4733d42dac036ad193f3.js.map
