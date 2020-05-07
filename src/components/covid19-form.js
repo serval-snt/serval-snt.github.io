@@ -10,10 +10,6 @@ import GridRangeValues from "./gridrangevalue"
 import API from './api';
 import Chart from "./chart"
 
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import DoneIcon from '@material-ui/icons/Done';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Loader from 'react-loader-spinner';
@@ -23,27 +19,52 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
 
-const styles = theme => ({
-    fab: {
-        margin: theme.spacing(1),
-        position: 'fixed',
-        bottom: theme.spacing(2),
-        left: theme.spacing(12),
-      },
-    fabDelete: {
-        margin: theme.spacing(1),
-        position: 'fixed',
-        bottom: theme.spacing(2),
-        left: theme.spacing(20),
-      },
-      fabDone: {
-          margin: theme.spacing(1),
-          position: 'fixed',
-          bottom: theme.spacing(2),
-          left: theme.spacing(2),
-        },
-      
-    });
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import CloudDownloadRoundedIcon from '@material-ui/icons/CloudDownloadRounded';
+import Menu from '@material-ui/core/Menu';
+
+const scenarios = {
+  "scenario-1": {
+    "country" : "Luxembourg",
+    "mitigations": [
+        {id:0, measure:"grocery/pharmacy",date:"2020-05-11",value:100},
+        {id:1, measure:"Workplaces",date:"2020-05-11",value:40},
+        {id:2, measure:"Workplaces",date:"2020-05-25",value:100},
+        {id:3, measure:"S1_School",date:"2020-05-11",value:40},
+        {id:4, measure:"S1_School",date:"2020-05-18",value:70},
+        {id:5, measure:"S1_School",date:"2020-05-25",value:100},
+        {id:6, measure:"parks",date:"2020-05-11",value:20},
+        {id:7, measure:"parks",date:"2020-05-25",value:40},
+        {id:8, measure:"parks",date:"2020-06-04",value:100},
+        {id:9, measure:"transit_stations",date:"2020-05-18",value:40},
+        {id:10, measure:"retail/recreation",date:"2020-05-25",value:100},
+        {id:11, measure:"S7_International travel controls",date:"2020-06-15",value:100}
+    ]
+  },
+  "scenario-2": {
+    "country" : "Luxembourg",
+    "mitigations": [
+      {id:0, measure:"grocery/pharmacy",date:"2020-05-11",value:100},
+      {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
+      {id:2, measure:"S1_School",date:"2020-05-11",value:100},
+      {id:3, measure:"parks",date:"2020-05-11",value:100},
+      {id:4, measure:"transit_stations",date:"2020-05-11",value:100},
+      {id:5, measure:"retail/recreation",date:"2020-05-11",value:100},
+      {id:6, measure:"S7_International travel controls",date:"2020-05-11",value:100},
+    ]
+  }
+}
+
+const styles = () => ({
+  left: {
+    flexGrow: 1
+  }
+});
 
 const HeaderAuthors = styled.h3`
   margin-top: 10px;
@@ -86,7 +107,8 @@ constructor(props) {
         critical_path:"",
         death_path:"",
         data_json:"",
-        loading:false
+        loading:false,
+        menuAnchorEl: null,
     }
   }
   handleInputChange = event => {
@@ -121,6 +143,31 @@ constructor(props) {
 
   };
 
+  handleLoadMenuOpen = (event) => {
+    const id = event.currentTarget.id;
+    this.setState(() => ({ menuAnchorEl: document.getElementById(id)}));
+  };
+
+  handleMenuClose = () => {
+    this.setState(() => ({menuAnchorEl: null}));
+  };
+
+  isLoadMenuOpen = () => {
+    return this.state.menuAnchorEl != null;
+  }
+
+  handleScenarioClick = (event) => {
+    console.log(event.currentTarget.id)
+    const scenario = scenarios[event.currentTarget.id]
+    console.log(scenario)
+
+    this.setState(() => ({
+      countryName : scenario.country,
+      rows : scenario.mitigations
+    }));
+
+    this.handleMenuClose();
+  }
 
   onGridRowsUpdated = ({ fromRow, toRow, updated }) => {
     this.setState(state => {
@@ -181,6 +228,28 @@ constructor(props) {
         console.log(res.data.path,this.state)
     })
   }
+
+  renderLoadMenu = () => { 
+    return(
+      <Menu
+        anchorEl={this.state.menuAnchorEl} 
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        id="load-menu"
+        keepMounted
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={this.isLoadMenuOpen()}
+        onClose={this.handleMenuClose}
+      >
+        <MenuItem id="scenario-1" onClick={this.handleScenarioClick}>
+          <p>LU - Soft</p>
+        </MenuItem>
+        <MenuItem id="scenario-2" onClick={this.handleScenarioClick}>
+          <p>LU - Brutal</p>
+        </MenuItem>
+      </Menu>
+    )
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -189,6 +258,27 @@ constructor(props) {
             <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
           </Grid>
             <Grid item xs={4}>
+
+                <AppBar position="static">
+                  <Toolbar variant="dense">
+                    <div className={classes.left}>
+                      <IconButton edge="start" className={classes.menuButton} onClick={this.handleNewMeasureClick} color="inherit" aria-label="add">
+                        <AddCircleRoundedIcon />
+                      </IconButton>
+                      <IconButton edge="start" className={classes.menuButton} onClick={this.handleDeleteMeasureClick} color="inherit" aria-label="remove">
+                        <RemoveCircleIcon />
+                      </IconButton>    
+                        <IconButton edge="start" id="load-button" className={classes.menuButton} onClick={this.handleLoadMenuOpen} color="inherit" aria-label="load" aria-haspopup="true">
+                          <CloudDownloadRoundedIcon />
+                        </IconButton>                     
+                    </div>
+                    <IconButton className={classes.menuButton} onClick={this.handleSubmit} color="inherit" aria-label="play">
+                      <PlayCircleFilledWhiteIcon />
+                    </IconButton>
+                  </Toolbar>
+                </AppBar>
+                {this.renderLoadMenu()}
+
                 <FormControl onSubmit={this.handleSubmit} fullWidth={true}>
                     <InputLabel>Country</InputLabel>
                     <Select 
@@ -218,18 +308,6 @@ constructor(props) {
                     enableCellSelect={true}
                     />
                 </FormControl>
-
-                <Fab color="secondary" aria-label="Next" style={{zIndex:1000}} className={classes.fabDone} onClick={this.handleSubmit}>
-                <DoneIcon />
-                </Fab>
-
-                <Fab color="primary" aria-label="Add" style={{zIndex:1000}} className={classes.fab} onClick={this.handleNewMeasureClick}>
-                <AddIcon />
-                </Fab>
-
-                <Fab aria-label="Delete" style={{zIndex:1000}} className={classes.fabDelete} onClick={this.handleDeleteMeasureClick}>
-                <DeleteIcon  />
-                </Fab>
             </Grid>
             <Grid item xs={8}>
                 {this.state.loading &&
