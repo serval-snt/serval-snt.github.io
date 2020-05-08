@@ -27,11 +27,11 @@ class ChartComponent extends React.Component {
 
         this.state = {
             show_cases: true,
-            show_hospital: false,
-            show_critical: false,
-            show_deaths: false,
-            show_rate:false,
-            show_ci: true
+            show_hospital: true,
+            show_critical: true,
+            show_deaths: true,
+            show_rate:true,
+            show_ci: false
         }
     }
     
