@@ -13,7 +13,6 @@ import Chart from "./chart"
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Loader from 'react-loader-spinner';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -32,69 +31,53 @@ const scenarios = {
   "scenario-1": {
     "country" : "Belgium",
     "mitigations": [
-      {id:0, measure:"grocery/pharmacy",date:"2020-04-15",value:20},
-      {id:1, measure:"Workplaces",date:"2020-04-15",value:20},
-      {id:2, measure:"S1_School",date:"2020-04-15",value:20},
-      {id:3, measure:"parks",date:"2020-04-15",value:20},
-      {id:4, measure:"transit_stations",date:"2020-04-15",value:20},
-      {id:5, measure:"retail/recreation",date:"2020-04-15",value:20},
-      {id:6, measure:"S7_International travel controls",date:"2020-04-15",value:20}
+      {id:0, measure:"Essential groceries",date:"2020-09-15",value:100},
+      {id:1, measure:"Workplaces",date:"2020-09-15",value:100},
+      {id:2, measure:"School & Universities",date:"2020-09-15",value:100},
+      {id:3, measure:"Parks & outdoor activities",date:"2020-09-15",value:100},
+      {id:4, measure:"Public transport",date:"2020-09-15",value:100},
+      {id:5, measure:"Retail & Recreation",date:"2020-09-15",value:100},
+      {id:6, measure:"International travels",date:"2020-09-15",value:100}
     ]
   },
   "scenario-2": {
     "country" : "Belgium",
-    "mitigations": [
-      {id:0, measure:"grocery/pharmacy",date:"2020-04-15",value:20},
-      {id:1, measure:"Workplaces",date:"2020-04-15",value:20},
-      {id:2, measure:"S1_School",date:"2020-04-15",value:20},
-      {id:3, measure:"parks",date:"2020-04-15",value:20},
-      {id:4, measure:"transit_stations",date:"2020-04-15",value:20},
-      {id:5, measure:"retail/recreation",date:"2020-04-15",value:20},
-      {id:6, measure:"S7_International travel controls",date:"2020-04-15",value:20},
-      
-      {id:7, measure:"grocery/pharmacy",date:"2020-05-11",value:100},
+    "mitigations": [     
+      {id:7, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:8, measure:"Workplaces",date:"2020-05-11",value:100},
-      {id:9, measure:"S1_School",date:"2020-05-11",value:100},
-      {id:10, measure:"parks",date:"2020-05-11",value:100},
-      {id:11, measure:"transit_stations",date:"2020-05-11",value:100},
-      {id:12, measure:"retail/recreation",date:"2020-05-11",value:100},
-      {id:13, measure:"S7_International travel controls",date:"2020-05-11",value:100}
+      {id:9, measure:"School & Universities",date:"2020-05-11",value:100},
+      {id:10, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
+      {id:11, measure:"Public transport",date:"2020-05-11",value:100},
+      {id:12, measure:"Retail & Recreation",date:"2020-05-11",value:100},
+      {id:13, measure:"International travels",date:"2020-05-11",value:100}
     ]
   },
   "scenario-3": {
     "country" : "Belgium",
     "mitigations": [
-      {id:0, measure:"grocery/pharmacy",date:"2020-04-15",value:20},
-      {id:1, measure:"Workplaces",date:"2020-04-15",value:20},
-      {id:2, measure:"S1_School",date:"2020-04-15",value:20},
-      {id:3, measure:"parks",date:"2020-04-15",value:20},
-      {id:4, measure:"transit_stations",date:"2020-04-15",value:20},
-      {id:5, measure:"retail/recreation",date:"2020-04-15",value:20},
-      {id:6, measure:"S7_International travel controls",date:"2020-04-15",value:20},
-
-      {id:7, measure:"grocery/pharmacy",date:"2020-04-27",value:100},
+      {id:7, measure:"Essential groceries",date:"2020-04-27",value:100},
       {id:8, measure:"Workplaces",date:"2020-04-27",value:100},
-      {id:9, measure:"S1_School",date:"2020-04-27",value:100},
-      {id:10, measure:"parks",date:"2020-04-27",value:100},
-      {id:11, measure:"transit_stations",date:"2020-04-27",value:100},
-      {id:12, measure:"retail/recreation",date:"2020-04-27",value:100},
-      {id:13, measure:"S7_International travel controls",date:"2020-04-27",value:100},
+      {id:9, measure:"School & Universities",date:"2020-04-27",value:100},
+      {id:10, measure:"Parks & outdoor activities",date:"2020-04-27",value:100},
+      {id:11, measure:"Public transport",date:"2020-04-27",value:100},
+      {id:12, measure:"Retail & Recreation",date:"2020-04-27",value:100},
+      {id:13, measure:"International travels",date:"2020-04-27",value:100},
 
-      {id:14, measure:"grocery/pharmacy",date:"2020-05-11",value:20},
+      {id:14, measure:"Essential groceries",date:"2020-05-11",value:20},
       {id:15, measure:"Workplaces",date:"2020-05-11",value:20},
-      {id:16, measure:"S1_School",date:"2020-05-11",value:20},
-      {id:17, measure:"parks",date:"2020-05-11",value:20},
-      {id:18, measure:"transit_stations",date:"2020-05-11",value:20},
-      {id:19, measure:"retail/recreation",date:"2020-05-11",value:20},
-      {id:20, measure:"S7_International travel controls",date:"2020-05-11",value:20},
+      {id:16, measure:"School & Universities",date:"2020-05-11",value:0},
+      {id:17, measure:"Parks & outdoor activities",date:"2020-05-11",value:0},
+      {id:18, measure:"Public transport",date:"2020-05-11",value:0},
+      {id:19, measure:"Retail & Recreation",date:"2020-05-11",value:0},
+      {id:20, measure:"International travels",date:"2020-05-11",value:0},
 
-      {id:14, measure:"grocery/pharmacy",date:"2020-05-25",value:100},
+      {id:14, measure:"Essential groceries",date:"2020-05-25",value:100},
       {id:15, measure:"Workplaces",date:"2020-05-25",value:100},
-      {id:16, measure:"S1_School",date:"2020-05-25",value:100},
-      {id:17, measure:"parks",date:"2020-05-25",value:100},
-      {id:18, measure:"transit_stations",date:"2020-05-25",value:100},
-      {id:19, measure:"retail/recreation",date:"2020-05-25",value:100},
-      {id:20, measure:"S7_International travel controls",date:"2020-05-25",value:100},
+      {id:16, measure:"School & Universities",date:"2020-05-25",value:100},
+      {id:17, measure:"Parks & outdoor activities",date:"2020-05-25",value:100},
+      {id:18, measure:"Public transport",date:"2020-05-25",value:100},
+      {id:19, measure:"Retail & Recreation",date:"2020-05-25",value:100},
+      {id:20, measure:"International travels",date:"2020-05-25",value:100},
     ]
   }
 }
@@ -280,10 +263,10 @@ constructor(props) {
         onClose={this.handleMenuClose}
       >
         <MenuItem id="scenario-1" onClick={this.handleScenarioClick}>
-          <p>BE - Lockdown Forever</p>
+          <p>BE - Long Lockdown</p>
         </MenuItem>
         <MenuItem id="scenario-2" onClick={this.handleScenarioClick}>
-          <p>BE - Brutal Exit</p>
+          <p>BE - Short Lockdown</p>
         </MenuItem>
         <MenuItem id="scenario-3" onClick={this.handleScenarioClick}>
           <p>BE - Cyclic Lockdown</p>
