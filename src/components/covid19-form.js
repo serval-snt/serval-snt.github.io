@@ -280,17 +280,6 @@ constructor(props) {
                 {this.renderLoadMenu()}
 
                 <FormControl onSubmit={this.handleSubmit} fullWidth={true}>
-                    <InputLabel>Country</InputLabel>
-                    <Select 
-                      onChange={this.changeName} 
-                      value={this.state.countryName}
-                    >
-                    {countries.map((c) => (
-                      <MenuItem value={c}>{c}</MenuItem>
-                    ))}
-                    </Select>
-                    <FormHelperText>Select a country to run your simulation in</FormHelperText>
-                    <br/>
                     <ReactDataGrid
                     columns={columns}
                     rowKey="id"
@@ -307,6 +296,15 @@ constructor(props) {
                     }}
                     enableCellSelect={true}
                     />
+                    <Select 
+                      onChange={this.changeName} 
+                      value={this.state.countryName}
+                    >
+                    {countries.map((c) => (
+                      <MenuItem value={c}>{c}</MenuItem>
+                    ))}
+                    </Select>
+                    <FormHelperText>Select a country to run your simulation in</FormHelperText>
                 </FormControl>
             </Grid>
             <Grid item xs={8}>
