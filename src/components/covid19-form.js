@@ -30,20 +30,18 @@ import CloudDownloadRoundedIcon from '@material-ui/icons/CloudDownloadRounded';
 import Menu from '@material-ui/core/Menu';
 
 const scenarios = {
-  "scenario-1": {
-    "country" : "Belgium",
+  "scenario-brutal-exit": {
     "mitigations": [
-      {id:0, measure:"Essential groceries",date:"2020-09-15",value:100},
-      {id:1, measure:"Workplaces",date:"2020-09-15",value:100},
-      {id:2, measure:"School & Universities",date:"2020-09-15",value:100},
-      {id:3, measure:"Parks & outdoor activities",date:"2020-09-15",value:100},
-      {id:4, measure:"Public transport",date:"2020-09-15",value:100},
-      {id:5, measure:"Retail & Recreation",date:"2020-09-15",value:100},
-      {id:6, measure:"International travels",date:"2020-09-15",value:100}
+      {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
+      {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
+      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
+      {id:4, measure:"Public transport",date:"2020-05-11",value:100},
+      {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
+      {id:6, measure:"International travels",date:"2020-05-11",value:100}
     ]
   },
-  "scenario-2": {
-    "country" : "Belgium",
+  "scenario-brutal-exit-closed-borders": {
     "mitigations": [     
       {id:7, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:8, measure:"Workplaces",date:"2020-05-11",value:100},
@@ -51,35 +49,66 @@ const scenarios = {
       {id:10, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
       {id:11, measure:"Public transport",date:"2020-05-11",value:100},
       {id:12, measure:"Retail & Recreation",date:"2020-05-11",value:100},
-      {id:13, measure:"International travels",date:"2020-05-11",value:100}
+      {id:13, measure:"International travels",date:"2020-05-11",value:0}
     ]
   },
-  "scenario-3": {
-    "country" : "Belgium",
+  "scenario-cyclic-exit": {
     "mitigations": [
-      {id:7, measure:"Essential groceries",date:"2020-04-27",value:100},
-      {id:8, measure:"Workplaces",date:"2020-04-27",value:100},
-      {id:9, measure:"School & Universities",date:"2020-04-27",value:100},
-      {id:10, measure:"Parks & outdoor activities",date:"2020-04-27",value:100},
-      {id:11, measure:"Public transport",date:"2020-04-27",value:100},
-      {id:12, measure:"Retail & Recreation",date:"2020-04-27",value:100},
-      {id:13, measure:"International travels",date:"2020-04-27",value:100},
+      {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
+      {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
+      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
+      {id:4, measure:"Public transport",date:"2020-05-11",value:100},
+      {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
+      {id:6, measure:"International travels",date:"2020-05-11",value:100},
 
-      {id:14, measure:"Essential groceries",date:"2020-05-11",value:20},
-      {id:15, measure:"Workplaces",date:"2020-05-11",value:20},
-      {id:16, measure:"School & Universities",date:"2020-05-11",value:0},
-      {id:17, measure:"Parks & outdoor activities",date:"2020-05-11",value:0},
-      {id:18, measure:"Public transport",date:"2020-05-11",value:0},
-      {id:19, measure:"Retail & Recreation",date:"2020-05-11",value:0},
-      {id:20, measure:"International travels",date:"2020-05-11",value:0},
+      {id:7, measure:"Essential groceries",date:"2020-05-25",value:20},
+      {id:8, measure:"Workplaces",date:"2020-05-25",value:20},
+      {id:9, measure:"School & Universities",date:"2020-05-25",value:0},
+      {id:10, measure:"Parks & outdoor activities",date:"2020-05-25",value:0},
+      {id:11, measure:"Public transport",date:"2020-05-25",value:0},
+      {id:12, measure:"Retail & Recreation",date:"2020-05-25",value:0},
+      {id:13, measure:"International travels",date:"2020-05-25",value:0},
 
-      {id:14, measure:"Essential groceries",date:"2020-05-25",value:100},
-      {id:15, measure:"Workplaces",date:"2020-05-25",value:100},
-      {id:16, measure:"School & Universities",date:"2020-05-25",value:100},
-      {id:17, measure:"Parks & outdoor activities",date:"2020-05-25",value:100},
-      {id:18, measure:"Public transport",date:"2020-05-25",value:100},
-      {id:19, measure:"Retail & Recreation",date:"2020-05-25",value:100},
-      {id:20, measure:"International travels",date:"2020-05-25",value:100},
+      {id:14, measure:"Essential groceries",date:"2020-06-08",value:100},
+      {id:15, measure:"Workplaces",date:"2020-06-08",value:100},
+      {id:16, measure:"School & Universities",date:"2020-06-08",value:100},
+      {id:17, measure:"Parks & outdoor activities",date:"2020-06-08",value:100},
+      {id:18, measure:"Public transport",date:"2020-06-08",value:100},
+      {id:19, measure:"Retail & Recreation",date:"2020-06-08",value:100},
+      {id:20, measure:"International travels",date:"2020-06-08",value:100},
+
+      {id:21, measure:"Essential groceries",date:"2020-06-22",value:20},
+      {id:22, measure:"Workplaces",date:"2020-06-22",value:20},
+      {id:23, measure:"School & Universities",date:"2020-06-22",value:0},
+      {id:24, measure:"Parks & outdoor activities",date:"2020-06-22",value:0},
+      {id:25, measure:"Public transport",date:"2020-06-22",value:0},
+      {id:26, measure:"Retail & Recreation",date:"2020-06-22",value:0},
+      {id:27, measure:"International travels",date:"2020-06-22",value:0},
+
+      {id:28, measure:"Essential groceries",date:"2020-07-06",value:100},
+      {id:29, measure:"Workplaces",date:"2020-07-06",value:100},
+      {id:30, measure:"School & Universities",date:"2020-07-06",value:100},
+      {id:31, measure:"Parks & outdoor activities",date:"2020-07-06",value:100},
+      {id:32, measure:"Public transport",date:"2020-07-06",value:100},
+      {id:33, measure:"Retail & Recreation",date:"2020-07-06",value:100},
+      {id:34, measure:"International travels",date:"2020-07-06",value:100},
+
+      {id:35, measure:"Essential groceries",date:"2020-07-20",value:20},
+      {id:36, measure:"Workplaces",date:"2020-07-20",value:20},
+      {id:37, measure:"School & Universities",date:"2020-07-20",value:0},
+      {id:38, measure:"Parks & outdoor activities",date:"2020-07-20",value:0},
+      {id:39, measure:"Public transport",date:"2020-07-20",value:0},
+      {id:40, measure:"Retail & Recreation",date:"2020-07-20",value:0},
+      {id:41, measure:"International travels",date:"2020-07-20",value:0},
+
+      {id:14, measure:"Essential groceries",date:"2020-08-03",value:100},
+      {id:15, measure:"Workplaces",date:"2020-08-03",value:100},
+      {id:16, measure:"School & Universities",date:"2020-08-03",value:100},
+      {id:17, measure:"Parks & outdoor activities",date:"2020-08-03",value:100},
+      {id:18, measure:"Public transport",date:"2020-08-03",value:100},
+      {id:19, measure:"Retail & Recreation",date:"2020-08-03",value:100},
+      {id:20, measure:"International travels",date:"2020-08-03",value:100}
     ]
   }
 }
@@ -93,15 +122,6 @@ const styles = () => ({
 const HeaderAuthors = styled.h3`
   margin-top: 10px;
   color: #606060;
-`
-
-const Disclaimer = styled.p`
-  color: #777;
-  text-align: justify;
-  font-style: italic;
-  font-size: 0.7em;
-  line-height: normal;
-
 `
 
 const { DropDownEditor } = Editors;
@@ -198,12 +218,9 @@ constructor(props) {
   }
 
   handleScenarioClick = (event) => {
-    console.log(event.currentTarget.id)
     const scenario = scenarios[event.currentTarget.id]
-    console.log(scenario)
 
     this.setState(() => ({
-      countryName : scenario.country,
       rows : scenario.mitigations
     }));
 
@@ -281,14 +298,14 @@ constructor(props) {
         open={this.isLoadMenuOpen()}
         onClose={this.handleMenuClose}
       >
-        <MenuItem id="scenario-1" onClick={this.handleScenarioClick}>
-          <p>BE - Long Lockdown</p>
+        <MenuItem id="scenario-brutal-exit" onClick={this.handleScenarioClick}>
+          <p>Brutal Exit</p>
         </MenuItem>
-        <MenuItem id="scenario-2" onClick={this.handleScenarioClick}>
-          <p>BE - Short Lockdown</p>
+        <MenuItem id="scenario-brutal-exit-closed-borders" onClick={this.handleScenarioClick}>
+          <p>Brutal Exit With Closed Borders</p>
         </MenuItem>
-        <MenuItem id="scenario-3" onClick={this.handleScenarioClick}>
-          <p>BE - Cyclic Lockdown</p>
+        <MenuItem id="scenario-cyclic-exit" onClick={this.handleScenarioClick}>
+          <p>Cyclic Exit</p>
         </MenuItem>
       </Menu>
     )
@@ -373,13 +390,6 @@ constructor(props) {
                 {this.state.hospital_path !== "" &&<img src={this.state.hospital_path} alt=""/>}
                 {this.state.critical_path !== "" &&<img src={this.state.critical_path} alt=""/>}
                 {this.state.death_path !== "" &&<img src={this.state.death_path} alt=""/>}
-            </Grid>
-            <Grid item xs={12}>
-              <Disclaimer>Disclaimer:<br />
-              The present model aims at informing researchers and policy-makers by evaluating Non Pharmaceutical Interventions impacts and simulating 
-              exit scenarios. It is not intended to faithfully represent specific countries nor to fully reproduce the epidemic complexity within 
-              societies. Any conclusion should be carefully interpreted by experts, and the feasibility of tested scenarios should be discussed before 
-              reaching consensus.</Disclaimer>
             </Grid>
       </Grid>
     )
