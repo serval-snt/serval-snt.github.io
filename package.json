@@ -38,6 +38,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-loader-spinner": "^3.1.14",
+    "react-modal": "^3.11.2",
     "react-particles-js": "^2.7.0",
     "save": "^2.4.0",
     "typeface-nunito": "0.0.72"

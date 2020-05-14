@@ -94,15 +94,6 @@ const HeaderAuthors = styled.h3`
   color: #606060;
 `
 
-const Disclaimer = styled.p`
-  color: #777;
-  text-align: justify;
-  font-style: italic;
-  font-size: 0.7em;
-  line-height: normal;
-
-`
-
 const { DropDownEditor } = Editors;
 const measureTypes = [
   { id: "S1_School closing", value: "School & Universities" },
@@ -363,13 +354,6 @@ constructor(props) {
                 {this.state.hospital_path !== "" &&<img src={this.state.hospital_path} alt=""/>}
                 {this.state.critical_path !== "" &&<img src={this.state.critical_path} alt=""/>}
                 {this.state.death_path !== "" &&<img src={this.state.death_path} alt=""/>}
-            </Grid>
-            <Grid item xs={12}>
-              <Disclaimer>Disclaimer:<br />
-              The present model aims at informing researchers and policy-makers by evaluating Non Pharmaceutical Interventions impacts and simulating 
-              exit scenarios. It is not intended to faithfully represent specific countries nor to fully reproduce the epidemic complexity within 
-              societies. Any conclusion should be carefully interpreted by experts, and the feasibility of tested scenarios should be discussed before 
-              reaching consensus.</Disclaimer>
             </Grid>
       </Grid>
     )
