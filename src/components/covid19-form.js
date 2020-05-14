@@ -10,6 +10,7 @@ import GridRangeValues from "./gridrangevalue"
 import API from './api';
 import Chart from "./chart"
 import HelpModal from "./helpModal"
+import DisclaimerModal from "./disclaimerModal"
 
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
@@ -123,9 +124,11 @@ const columns = [
     { key: "value", name: "Value", editable: true, editor: <GridRangeValues min={0} max={100} /> }
   ];
 
+const [disclaimer, setDisclaimer] = React.useState(false);
+
 
 class Covid19Form extends React.Component {
-  
+
 constructor(props) {
     super(props);
         this.state = {
@@ -141,8 +144,14 @@ constructor(props) {
         data_json:"",
         loading:false,
         menuAnchorEl: null,
+        disclaimer: setDisclaimer(true)
     }
   }
+
+  handleCloseDisclaimer = () => {
+    setDisclaimer(false);
+  };
+
   handleInputChange = event => {
     const target = event.target
     const value = target.value
@@ -289,6 +298,7 @@ constructor(props) {
     const { classes } = this.props;
     return (
         <Grid container spacing={3}>
+          {disclaimer && <DisclaimerModal handleCloseDisclaimer={this.handleCloseDisclaimer} state={this.state.disclaimer}></DisclaimerModal>}
           <Grid item xs={12}>
             <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
             <HelpModal></HelpModal>
