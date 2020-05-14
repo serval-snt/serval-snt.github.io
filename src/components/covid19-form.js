@@ -42,13 +42,13 @@ const scenarios = {
   },
   "scenario-brutal-exit-closed-borders": {
     "mitigations": [     
-      {id:7, measure:"Essential groceries",date:"2020-05-11",value:100},
-      {id:8, measure:"Workplaces",date:"2020-05-11",value:100},
-      {id:9, measure:"School & Universities",date:"2020-05-11",value:100},
-      {id:10, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
-      {id:11, measure:"Public transport",date:"2020-05-11",value:100},
-      {id:12, measure:"Retail & Recreation",date:"2020-05-11",value:100},
-      {id:13, measure:"International travels",date:"2020-05-11",value:0}
+      {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
+      {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
+      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
+      {id:4, measure:"Public transport",date:"2020-05-11",value:100},
+      {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
+      {id:6, measure:"International travels",date:"2020-05-11",value:0}
     ]
   },
   "scenario-cyclic-exit": {
@@ -101,13 +101,13 @@ const scenarios = {
       {id:40, measure:"Retail & Recreation",date:"2020-07-20",value:0},
       {id:41, measure:"International travels",date:"2020-07-20",value:0},
 
-      {id:14, measure:"Essential groceries",date:"2020-08-03",value:100},
-      {id:15, measure:"Workplaces",date:"2020-08-03",value:100},
-      {id:16, measure:"School & Universities",date:"2020-08-03",value:100},
-      {id:17, measure:"Parks & outdoor activities",date:"2020-08-03",value:100},
-      {id:18, measure:"Public transport",date:"2020-08-03",value:100},
-      {id:19, measure:"Retail & Recreation",date:"2020-08-03",value:100},
-      {id:20, measure:"International travels",date:"2020-08-03",value:100}
+      {id:42, measure:"Essential groceries",date:"2020-08-03",value:100},
+      {id:43, measure:"Workplaces",date:"2020-08-03",value:100},
+      {id:44, measure:"School & Universities",date:"2020-08-03",value:100},
+      {id:45, measure:"Parks & outdoor activities",date:"2020-08-03",value:100},
+      {id:46, measure:"Public transport",date:"2020-08-03",value:100},
+      {id:47, measure:"Retail & Recreation",date:"2020-08-03",value:100},
+      {id:48, measure:"International travels",date:"2020-08-03",value:100}
     ]
   }
 }
