@@ -30,6 +30,7 @@ class ChartComponent extends React.Component {
             show_hospital: true,
             show_critical: true,
             show_deaths: true,
+            show_infectuous: true,
             show_rate:true,
             show_ci: false
         }
@@ -53,7 +54,7 @@ class ChartComponent extends React.Component {
         series_counter += this.addSeries(chart, 'SimulationHospital', 'Hospitalizations', '#00ff22', this.state.show_hospital);
         series_counter += this.addSeries(chart, 'SimulationCritical', 'Critical hospitalizations', '#ff7700', this.state.show_critical);
         series_counter += this.addSeries(chart, 'SimulationDeaths', 'Total deaths', '#ff0008', this.state.show_deaths);
-        series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_deaths);
+        series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous);
         series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate);
 
         if(series_counter === 0){
@@ -62,7 +63,8 @@ class ChartComponent extends React.Component {
                 show_cases: true,
                 show_hospital: false,
                 show_critical: false,
-                show_deaths: false
+                show_deaths: false,
+                show_infectuous: false
             });
         }
         else{
@@ -98,6 +100,7 @@ class ChartComponent extends React.Component {
             case "toggle-hospital": this.setState(state => ({show_hospital: !state.show_hospital})); break;
             case "toggle-critical": this.setState(state => ({show_critical: !state.show_critical})); break;
             case "toggle-deaths": this.setState(state => ({show_deaths: !state.show_deaths})); break;
+            case "toggle-infectuous": this.setState(state => ({show_infectuous: !state.show_infectuous})); break;
             case "toggle-rate": this.setState(state => ({show_rate: !state.show_rate})); break;
             case "toggle-ci": this.setState(state => ({show_ci: !state.show_ci})); break;
             default: console.error("unhandled event: " + e.target.id); break;
@@ -109,12 +112,13 @@ class ChartComponent extends React.Component {
         return (
             <div id="chart-area">
                 <Toggler> 
-                    <Button variant="contained" style={{"margin":5}} color={this.state.show_cases ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-cases")}>Total cases</Button>
-                    <Button variant="contained" style={{"margin":5}} color={this.state.show_hospital ? "primary" : "default"}onClick={(e) => this.handleToggle("toggle-hospital")}>All hospitalizations</Button>
-                    <Button variant="contained" style={{"margin":5}} color={this.state.show_critical ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-critical")}>Critical hospitalizations</Button>
-                    <Button variant="contained" style={{"margin":5}} color={this.state.show_deaths ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-deaths")}>Total deaths</Button>
-                    <Button variant="contained" style={{"margin":5}} color={this.state.show_rate ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-rate")}>Reproduction rate</Button>
-                    <Button variant="contained" style={{"margin":5, "marginLeft":20}} color="secondary" onClick={(e) => this.handleToggle("toggle-ci")}>{this.state.show_ci ? 'HIDE CONFIDENCE INTERVALS' : 'SHOW CONFIDENCE INTERVALS'}</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_cases ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-cases")}>Total cases</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_hospital ? "primary" : "default"}onClick={(e) => this.handleToggle("toggle-hospital")}>All hospitalizations</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_critical ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-critical")}>Critical hospitalizations</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_deaths ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-deaths")}>Total deaths</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_infectuous ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-infectuous")}>Infectious Cases</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px"}} color={this.state.show_rate ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-rate")}>Reproduction rate</Button>
+                    <Button variant="contained" style={{"margin":5, "font-size": "12px", "marginLeft":20}} color="secondary" onClick={(e) => this.handleToggle("toggle-ci")}>{this.state.show_ci ? 'HIDE CONFIDENCE INTERVALS' : 'SHOW CONFIDENCE INTERVALS'}</Button>
                 </Toggler>
                 <div id="chart"></div>
 
