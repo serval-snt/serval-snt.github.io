@@ -53,6 +53,7 @@ class ChartComponent extends React.Component {
         series_counter += this.addSeries(chart, 'SimulationHospital', 'Hospitalizations', '#00ff22', this.state.show_hospital);
         series_counter += this.addSeries(chart, 'SimulationCritical', 'Critical hospitalizations', '#ff7700', this.state.show_critical);
         series_counter += this.addSeries(chart, 'SimulationDeaths', 'Total deaths', '#ff0008', this.state.show_deaths);
+        series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_deaths);
         series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate);
 
         if(series_counter === 0){
