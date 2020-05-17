@@ -50,15 +50,17 @@ class ChartComponent extends React.Component {
         let chart = d3_timeseries();
 
 
-        let series_counter = this.addSeries(chart, 'SimulationCases', 'Total cases', '#a6cee3', this.state.show_cases);
-        series_counter += this.addSeries(chart, 'SimulationHospital', 'Hospitalizations', '#00ff22', this.state.show_hospital);
-        series_counter += this.addSeries(chart, 'SimulationCritical', 'Critical hospitalizations', '#ff7700', this.state.show_critical);
-        series_counter += this.addSeries(chart, 'SimulationDeaths', 'Total deaths', '#ff0008', this.state.show_deaths);
-        series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous);
-        series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate);
+        let series_counter = this.addSeries(chart, 'SimulationCases', 'Total cases', '#a6cee3', this.state.show_cases,false);
+        series_counter += this.addSeries(chart, 'SimulationHospital', 'Hospitalizations', '#00ff22', this.state.show_hospital,false);
+        series_counter += this.addSeries(chart, 'SimulationCritical', 'Critical hospitalizations', '#ff7700', this.state.show_critical,false);
+        series_counter += this.addSeries(chart, 'SimulationDeaths', 'Total deaths', '#ff0008', this.state.show_deaths,false);
+        series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous,false);
+        series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate,false);
 
-        if (this.state.show_cases && !this.state.show_ci){
-            series_counter += this.addSeries(chart, 'Herd_immunity', 'Herd immunity', '#000000', this.state.show_cases);
+        if (this.state.show_cases && !this.state.show_ci && series_counter==1){
+            series_counter += this.addSeries(chart, 'MaxHerd_immunity', 'Herd immunity', '#000000', this.state.show_cases,true);
+            series_counter += this.addSeries(chart, 'Herd_immunity', 'Instantaneous herd immunity', '#888888', this.state.show_cases,false);
+
         }
 
         if(series_counter === 0){
@@ -83,13 +85,13 @@ class ChartComponent extends React.Component {
         }
     }
 
-    addSeries(chart, column, label, color, show){
+    addSeries(chart, column, label, color, show,dashed){
         if(show){
             if(this.state.show_ci){
                 chart.addSerie(this.props.data, {x:'Date',y:column,ci_up:column + '_max',ci_down:column + '_min'}, {interpolate:'linear', color:color,label:label});
             }
             else{
-                chart.addSerie(this.props.data, {x:'Date',y:column}, {interpolate:'linear', color:color,label:label});
+                chart.addSerie(this.props.data, {x:'Date',y:column}, {interpolate:'linear', color:color,label:label, dashed:dashed});
             }
 
             return 1;

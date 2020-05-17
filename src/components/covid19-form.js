@@ -31,7 +31,7 @@ import Menu from '@material-ui/core/Menu';
 const scenarios = {
   "scenario-brutal-exit": {
     "mitigations": [
-      {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
+      //{id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
       //{id:2, measure:"School & Universities",date:"2020-05-11",value:100},
       {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
@@ -53,7 +53,7 @@ const scenarios = {
   },*/
   "scenario-cyclic-exit": {
     "mitigations": [
-      {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
+      //{id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
       //{id:2, measure:"School & Universities",date:"2020-05-11",value:100},
       {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
@@ -69,7 +69,7 @@ const scenarios = {
       {id:12, measure:"Retail & Recreation",date:"2020-06-08",value:0},
       //{id:13, measure:"International travels",date:"2020-06-08",value:0},
 
-      {id:14, measure:"Essential groceries",date:"2020-07-06",value:100},
+      //{id:14, measure:"Essential groceries",date:"2020-07-06",value:100},
       {id:15, measure:"Workplaces",date:"2020-07-06",value:100},
       //{id:16, measure:"School & Universities",date:"2020-07-06",value:100},
       {id:17, measure:"Parks & outdoor activities",date:"2020-07-06",value:100},
@@ -77,7 +77,7 @@ const scenarios = {
       {id:19, measure:"Retail & Recreation",date:"2020-07-06",value:100},
       //{id:20, measure:"International travels",date:"2020-07-06",value:100},
 
-      {id:21, measure:"Essential groceries",date:"2020-08-03",value:20},
+      //{id:21, measure:"Essential groceries",date:"2020-08-03",value:20},
       {id:22, measure:"Workplaces",date:"2020-08-03",value:20},
       //{id:23, measure:"School & Universities",date:"2020-08-03",value:0},
       {id:24, measure:"Parks & outdoor activities",date:"2020-08-03",value:0},
@@ -85,7 +85,7 @@ const scenarios = {
       {id:26, measure:"Retail & Recreation",date:"2020-08-03",value:0},
       //{id:27, measure:"International travels",date:"2020-08-03",value:0},
 
-      {id:28, measure:"Essential groceries",date:"2020-09-07",value:100},
+      //{id:28, measure:"Essential groceries",date:"2020-09-07",value:100},
       {id:29, measure:"Workplaces",date:"2020-09-07",value:100},
       //{id:30, measure:"School & Universities",date:"2020-09-07",value:100},
       {id:31, measure:"Parks & outdoor activities",date:"2020-09-07",value:100},
@@ -112,7 +112,7 @@ const measureTypes = [
   //{ id: "S1_School closing", value: "School & Universities" },
   //{ id: "S7_International travel controls", value: "International travels" },
   { id: "parks", value: "Parks & outdoor activities" },
-  { id: "grocery/pharmacy", value: "Essential groceries" },
+  //{ id: "grocery/pharmacy", value: "Essential groceries" },
   { id: "transit_stations", value: "Public transport" },
   { id: "retail/recreation", value: "Retail & Recreation" },
   { id: "workplace", value: "Workplaces" }
@@ -252,7 +252,11 @@ constructor(props) {
     API.post(`predict`, { country_name:this.state.countryName,measures:measures,dates:dates,values:values} )
     .then(res => {
         var df = res.data.df
+
+        var max_herd = Math.ceil(Math.max.apply(Math,df.map(function(o){return o.Herd_immunity;})))
         df.forEach(entry => entry.Date = new Date(entry.Date));
+        df.forEach(entry => entry.MaxHerd_immunity = max_herd);
+
         this.setState({
             data_json:df,
             loading:false
