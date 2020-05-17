@@ -57,6 +57,10 @@ class ChartComponent extends React.Component {
         series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous);
         series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate);
 
+        if (this.state.show_cases && !this.state.show_ci){
+            series_counter += this.addSeries(chart, 'Herd_immunity', 'Herd immunity', '#000000', this.state.show_cases);
+        }
+
         if(series_counter === 0){
             console.log("empty series")
             this.setState({
