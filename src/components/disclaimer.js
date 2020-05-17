@@ -14,7 +14,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    "text-align": "justify",
+    textAlign: "justify",
   },
 }
 
@@ -36,7 +36,7 @@ function Disclaimer() {
   }
 
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="Disclaimer">
+    <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="Disclaimer" ariaHideApp={false}>
       <AppBar color="secondary">
         <Toolbar>
           <Typography variant="h6">
