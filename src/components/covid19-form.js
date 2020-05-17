@@ -33,65 +33,65 @@ const scenarios = {
     "mitigations": [
       {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
-      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      //{id:2, measure:"School & Universities",date:"2020-05-11",value:100},
       {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
       {id:4, measure:"Public transport",date:"2020-05-11",value:100},
       {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
-      {id:6, measure:"International travels",date:"2020-05-11",value:100}
+      //{id:6, measure:"International travels",date:"2020-05-11",value:100}
     ]
   },
-  "scenario-brutal-exit-closed-borders": {
+  /*"scenario-brutal-exit-closed-borders": {
     "mitigations": [     
       {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
-      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      //{id:2, measure:"School & Universities",date:"2020-05-11",value:100},
       {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
       {id:4, measure:"Public transport",date:"2020-05-11",value:100},
       {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
-      {id:6, measure:"International travels",date:"2020-05-11",value:0}
+      //{id:6, measure:"International travels",date:"2020-05-11",value:0}
     ]
-  },
+  },*/
   "scenario-cyclic-exit": {
     "mitigations": [
       {id:0, measure:"Essential groceries",date:"2020-05-11",value:100},
       {id:1, measure:"Workplaces",date:"2020-05-11",value:100},
-      {id:2, measure:"School & Universities",date:"2020-05-11",value:100},
+      //{id:2, measure:"School & Universities",date:"2020-05-11",value:100},
       {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:100},
       {id:4, measure:"Public transport",date:"2020-05-11",value:100},
       {id:5, measure:"Retail & Recreation",date:"2020-05-11",value:100},
-      {id:6, measure:"International travels",date:"2020-05-11",value:100},
+      //{id:6, measure:"International travels",date:"2020-05-11",value:100},
 
       {id:7, measure:"Essential groceries",date:"2020-06-08",value:20},
       {id:8, measure:"Workplaces",date:"2020-06-08",value:20},
-      {id:9, measure:"School & Universities",date:"2020-06-08",value:0},
+      //{id:9, measure:"School & Universities",date:"2020-06-08",value:0},
       {id:10, measure:"Parks & outdoor activities",date:"2020-06-08",value:0},
       {id:11, measure:"Public transport",date:"2020-06-08",value:0},
       {id:12, measure:"Retail & Recreation",date:"2020-06-08",value:0},
-      {id:13, measure:"International travels",date:"2020-06-08",value:0},
+      //{id:13, measure:"International travels",date:"2020-06-08",value:0},
 
       {id:14, measure:"Essential groceries",date:"2020-07-06",value:100},
       {id:15, measure:"Workplaces",date:"2020-07-06",value:100},
-      {id:16, measure:"School & Universities",date:"2020-07-06",value:100},
+      //{id:16, measure:"School & Universities",date:"2020-07-06",value:100},
       {id:17, measure:"Parks & outdoor activities",date:"2020-07-06",value:100},
       {id:18, measure:"Public transport",date:"2020-07-06",value:100},
       {id:19, measure:"Retail & Recreation",date:"2020-07-06",value:100},
-      {id:20, measure:"International travels",date:"2020-07-06",value:100},
+      //{id:20, measure:"International travels",date:"2020-07-06",value:100},
 
       {id:21, measure:"Essential groceries",date:"2020-08-03",value:20},
       {id:22, measure:"Workplaces",date:"2020-08-03",value:20},
-      {id:23, measure:"School & Universities",date:"2020-08-03",value:0},
+      //{id:23, measure:"School & Universities",date:"2020-08-03",value:0},
       {id:24, measure:"Parks & outdoor activities",date:"2020-08-03",value:0},
       {id:25, measure:"Public transport",date:"2020-08-03",value:0},
       {id:26, measure:"Retail & Recreation",date:"2020-08-03",value:0},
-      {id:27, measure:"International travels",date:"2020-08-03",value:0},
+      //{id:27, measure:"International travels",date:"2020-08-03",value:0},
 
       {id:28, measure:"Essential groceries",date:"2020-09-07",value:100},
       {id:29, measure:"Workplaces",date:"2020-09-07",value:100},
-      {id:30, measure:"School & Universities",date:"2020-09-07",value:100},
+      //{id:30, measure:"School & Universities",date:"2020-09-07",value:100},
       {id:31, measure:"Parks & outdoor activities",date:"2020-09-07",value:100},
       {id:32, measure:"Public transport",date:"2020-09-07",value:100},
       {id:33, measure:"Retail & Recreation",date:"2020-09-07",value:100},
-      {id:34, measure:"International travels",date:"2020-09-07",value:100}
+      //{id:34, measure:"International travels",date:"2020-09-07",value:100}
     ]
   }
 }
@@ -109,8 +109,8 @@ const HeaderAuthors = styled.h3`
 
 const { DropDownEditor } = Editors;
 const measureTypes = [
-  { id: "S1_School closing", value: "School & Universities" },
-  { id: "S7_International travel controls", value: "International travels" },
+  //{ id: "S1_School closing", value: "School & Universities" },
+  //{ id: "S7_International travel controls", value: "International travels" },
   { id: "parks", value: "Parks & outdoor activities" },
   { id: "grocery/pharmacy", value: "Essential groceries" },
   { id: "transit_stations", value: "Public transport" },
