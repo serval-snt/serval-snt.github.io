@@ -374,7 +374,7 @@ constructor(props) {
                   <Loader type="ThreeDots" color="#54257c" height="100" width="100" />
                 </div>
                 }
-                {this.state.data_json && <Chart data={this.state.data_json} />}
+                {this.state.data_json && !this.state.loading && <Chart data={this.state.data_json} />}
                 {this.state.reproduction_path !== "" &&<img src={this.state.reproduction_path} alt=""/>}
                 {this.state.case_path !== "" &&<img src={this.state.case_path} alt=""/>}
                 {this.state.hospital_path !== "" &&<img src={this.state.hospital_path} alt=""/>}
