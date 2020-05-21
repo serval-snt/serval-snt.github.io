@@ -9,7 +9,6 @@ import GridRangeValues from "./gridrangevalue"
 
 import API from './api';
 import Chart from "./chart"
-import HelpModal from "./helpModal"
 
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
@@ -26,7 +25,9 @@ import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
 import CloudDownloadRoundedIcon from '@material-ui/icons/CloudDownloadRounded';
+import HelpIcon from '@material-ui/icons/Help';
 import Menu from '@material-ui/core/Menu';
+import InputTutorial from "./inputTutorial";
 
 const scenarios = {
   "scenario-brutal-exit": {
@@ -130,7 +131,7 @@ class Covid19Form extends React.Component {
 
 constructor(props) {
     super(props);
-        this.state = {
+    this.state = {
         countryName: "Luxembourg",
         rows: [],
         selectedIndexes: [],
@@ -143,7 +144,10 @@ constructor(props) {
         data_json:"",
         loading:false,
         menuAnchorEl: null,
+        inputTutorial: false,
     }
+
+    this.savedState = null;
   }
 
   handleInputChange = event => {
@@ -231,6 +235,16 @@ constructor(props) {
      this.setState({countryName: event.target.value});
   }
 
+  handleHelpMeasure = () => {
+    this.savedState = this.state;
+    this.setState({inputTutorial: true});
+  }
+
+  callbackHelpMeasure = () => {
+    this.setState({...this.savedState, inputTutorial: false});
+    this.savedState = null;
+  }
+
   handleSubmit = () => {
 
     var measureTypes_id = measureTypes.map(e => e.id)
@@ -246,7 +260,7 @@ constructor(props) {
             hospital_path:"",
             critical_path:"",
             death_path:"",
-            loading:true
+            loading:true,
         })
 
     API.post(`predict`, { country_name:this.state.countryName,measures:measures,dates:dates,values:values} )
@@ -292,24 +306,26 @@ constructor(props) {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
-            <HelpModal></HelpModal>
+            <InputTutorial run={this.state.inputTutorial} callback={this.callbackHelpMeasure} />
           </Grid>
-            <Grid item xs={4}>
-
+            <Grid id="covid-form" item xs={4}>
                 <AppBar position="static">
                   <Toolbar variant="dense">
                     <div className={classes.left}>
-                      <IconButton edge="start" className={classes.menuButton} onClick={this.handleNewMeasureClick} color="inherit" aria-label="add">
+                      <IconButton id="covid-add-measure" edge="start" className={classes.menuButton} onClick={this.handleNewMeasureClick} color="inherit" aria-label="add">
                         <AddCircleRoundedIcon />
                       </IconButton>
-                      <IconButton edge="start" className={classes.menuButton} onClick={this.handleDeleteMeasureClick} color="inherit" aria-label="remove">
+                      <IconButton id="covid-remove-measure" edge="start" className={classes.menuButton} onClick={this.handleDeleteMeasureClick} color="inherit" aria-label="remove">
                         <RemoveCircleIcon />
                       </IconButton>    
-                        <IconButton edge="start" id="load-button" className={classes.menuButton} onClick={this.handleLoadMenuOpen} color="inherit" aria-label="load" aria-haspopup="true">
-                          <CloudDownloadRoundedIcon />
-                        </IconButton>                     
+                      <IconButton id="covid-load-measure" edge="start" className={classes.menuButton} onClick={this.handleLoadMenuOpen} color="inherit" aria-label="load" aria-haspopup="true">
+                        <CloudDownloadRoundedIcon />
+                      </IconButton>                     
                     </div>
-                    <IconButton className={classes.menuButton} onClick={this.handleSubmit} color="inherit" aria-label="play">
+                    <IconButton id="covid-help-measure" className={classes.menuButton} onClick={this.handleHelpMeasure} color="inherit" aria-label="play">
+                      <HelpIcon />
+                    </IconButton>
+                    <IconButton id="covid-compute-measure" className={classes.menuButton} onClick={this.handleSubmit} color="inherit" aria-label="play">
                       <PlayCircleFilledWhiteIcon />
                     </IconButton>
                   </Toolbar>
@@ -333,7 +349,7 @@ constructor(props) {
                     }}
                     enableCellSelect={true}
                     />
-                    <Select 
+                    <Select
                       onChange={this.changeName} 
                       value={this.state.countryName}
                     >
@@ -341,7 +357,7 @@ constructor(props) {
                       <MenuItem value={c}>{c}</MenuItem>
                     ))}
                     </Select>
-                    <FormHelperText>Select a country to run your simulation in</FormHelperText>
+                    <FormHelperText id="covid-country-selection">Select a country to run your simulation in</FormHelperText>
                 </FormControl>
             </Grid>
             <Grid item xs={8}>
