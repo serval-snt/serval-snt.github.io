@@ -24,9 +24,11 @@ export default function AlertDialog() {
 
   return (
     <div>
+      {/*
       <Button color="secondary" variant="contained" onClick={handleClickOpen} startIcon={<Info />}>
         How to use
       </Button>
+      */}
       <Button style={{marginLeft: "10px"}} color="primary" variant="contained" href="https://forms.gle/1X7wRHQ1dFsANeMX6" target="_blank" startIcon={<FeedbackIcon />}>
         Feedback
       </Button>
