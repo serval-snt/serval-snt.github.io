@@ -9,6 +9,7 @@ import Info from '@material-ui/icons/Info';
 import AddCircleRoundedIcon from '@material-ui/icons/AddCircleRounded';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import FeedbackIcon from '@material-ui/icons/Feedback';
 
 export default function AlertDialog() {
   const [open, setOpen] = React.useState(false);
@@ -25,6 +26,9 @@ export default function AlertDialog() {
     <div>
       <Button color="secondary" variant="contained" onClick={handleClickOpen} startIcon={<Info />}>
         How to use
+      </Button>
+      <Button style={{marginLeft: "10px"}} color="primary" variant="contained" href="https://forms.gle/1X7wRHQ1dFsANeMX6" target="_blank" startIcon={<FeedbackIcon />}>
+        Feedback
       </Button>
       <Dialog
         open={open}
