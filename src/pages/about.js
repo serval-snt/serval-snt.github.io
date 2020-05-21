@@ -16,18 +16,12 @@ const IndexPage = () => (
   <Layout>
     <SEO title="About" keywords={[`gatsby`, `application`, `react`]} />
     <Content>
-      <p>The Security Design and Validation Research Group – SERVAL – is headed by Professor Yves Le Traon.</p>
-      <p>SERVAL conducts research on software engineering, and more specifically on modelling and design for security, as well as on validation of 
-      functional/security mechanisms for systems and software.</p> 
-      <p>Among the issues addressed by the group, we can mention</p>
-        <ul>
-          <li>The use of Model Driven Engineering for designing secure systems</li>
-          <li>Model composition and aspect weaving to develop adaptive security and testable mechanisms</li>
-          <li>The definition of security policies and dedicated testing techniques (mutation, evolutionary algorithms, static analysis) to ensure that 
-          functional and security mechanisms (privacy, access control, usage control, encryption) are correctly implemented and deployed.</li>
-        </ul> 
-        <p>The domains of application concern Ambient Assisted Living using sensor networks, information systems, distributed systems, 
-        web-applications, SOA, mobile apps.</p>
+      <p>In respense to the Covid-19 pandemic, a <a href="https://lux-covid19.lu/task-force" target="_blank" rel="noopener noreferrer">Luxembourg Task Force</a> has been created.</p>
+      <p>
+      <a href="https://uni.lu/snt" target="_blank" rel="noopener noreferrer">University of Luxembourg</a> and <a href="https://uni.lu" target="_blank" rel="noopener noreferrer">Interdisciplinary Center of Security & Trust</a> are working together 
+      to provide analyses and potential solutions to the research community.
+      </p>
+      <p>The Covid-19 Adaptive Exit Strategies is a contribution from Prof Yves Le Traon and 3 of his PhD students: Salah Ghamizi, Guillaume Haben and Renaud Rwemalika</p>
     </Content>
   </Layout>
 )
