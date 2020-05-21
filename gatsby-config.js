@@ -6,12 +6,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-165474474-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true
+        googleAnalytics: {
+          trackingId: 'UA-165474474-1',
+          // Setting this parameter is optional
+          anonymize: true
+        },
+        // Defines the environments where the tracking should be available  - default is ["production"]
+        environments: ['production', 'development']
       },
     },
     `gatsby-plugin-react-helmet`,
