@@ -35,7 +35,7 @@ const NavLink = styled(Link)`
   }
 `
 
-const GitHubLink = styled.a`
+const ExternalLink = styled.a`
   color: black;
   margin-left: 15px;
   text-decoration: none;
@@ -84,7 +84,8 @@ const Header = ({ siteTitle }) => (
         {/* <NavLink to="/publications">Publications</NavLink> */}
         {/* <NavLink to="/team">Team</NavLink> */}
         {/* <NavLink to="/positions">Open positions</NavLink> */}
-        <GitHubLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</GitHubLink>
+        <ExternalLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</ExternalLink>
+        <ExternalLink target="blank" href="https://forms.gle/1X7wRHQ1dFsANeMX6">Send us feedback</ExternalLink>
       </p>
     </Content>
   </SiteHeader>

@@ -9,7 +9,6 @@ import GridRangeValues from "./gridrangevalue"
 
 import API from './api';
 import Chart from "./chart"
-import HelpModal from "./helpModal"
 
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
@@ -308,7 +307,6 @@ constructor(props) {
           <Grid item xs={12}>
             <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
             <InputTutorial run={this.state.inputTutorial} callback={this.callbackHelpMeasure} />
-            <HelpModal></HelpModal>
           </Grid>
             <Grid id="covid-form" item xs={4}>
                 <AppBar position="static">
