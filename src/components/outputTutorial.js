@@ -104,7 +104,7 @@ class OutputTutorial extends Component {
           },
           {
             target: "#show-rate",
-            title: "Daily ransmission rate",
+            title: "Daily transmission rate",
             content: (
               <React.Fragment>
                 The effective reproductive number (R) is the average number of secondary
