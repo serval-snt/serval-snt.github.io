@@ -85,7 +85,7 @@ const Header = ({ siteTitle }) => (
         {/* <NavLink to="/team">Team</NavLink> */}
         {/* <NavLink to="/positions">Open positions</NavLink> */}
         {/* <ExternalLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</ExternalLink> */}
-        <ExternalLink target="blank" href="https://forms.gle/1X7wRHQ1dFsANeMX6">Send us feedback</ExternalLink>
+        <ExternalLink target="blank" href="https://forms.gle/PT7DnPvuRzV8NHzz5">Send us feedback</ExternalLink>
       </p>
     </Content>
   </SiteHeader>
