@@ -79,12 +79,12 @@ const Header = ({ siteTitle }) => (
         <HomeLink to="/">Home</HomeLink>
         <NavLink to="/about">About</NavLink>
         {/* <NavLink to="/news">News</NavLink> */}
-        <NavLink to="/covid19">Covid 19</NavLink>
+        <NavLink to="/covid19">Simulator</NavLink>
         <NavLink to="/how-it-works">How it works</NavLink>
         {/* <NavLink to="/publications">Publications</NavLink> */}
         {/* <NavLink to="/team">Team</NavLink> */}
         {/* <NavLink to="/positions">Open positions</NavLink> */}
-        <ExternalLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</ExternalLink>
+        {/* <ExternalLink target="blank" href="https://github.com/serval-snt-uni-lu">GitHub</ExternalLink> */}
         <ExternalLink target="blank" href="https://forms.gle/1X7wRHQ1dFsANeMX6">Send us feedback</ExternalLink>
       </p>
     </Content>
