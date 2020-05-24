@@ -16,7 +16,10 @@ const IndexPage = () => (
   <Layout>
     <SEO title="How it works" keywords={[`gatsby`, `application`, `react`]} />
     <Content>
-      <p>Under progress</p>
+        <iframe
+            src="https://docs.google.com/presentation/d/e/2PACX-1vSqR1G3Di8m9vEoNSqTGncPXyqkaG2gsvJ8kxcasziFs5NcrnKIkqCker3uDrQteg/embed?start=false&loop=false&delayms=3000"
+            frameBorder="0" width="1280" height="749" allowFullScreen="true" mozallowfullscreen="true"
+            webkitallowfullscreen="true"></iframe>
     </Content>
   </Layout>
 )
