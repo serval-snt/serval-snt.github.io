@@ -6,27 +6,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-const customStyles = {
+const style = {
   content: {
     top: "50%",
     left: "50%",
-    right: "500px",
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     textAlign: "justify",
   },
 }
-
-/*
-const Style = styled.p`
-  color: #777;
-  text-align: justify;
-  font-style: italic;
-  font-size: 0.7em;
-  line-height: normal;
-`
-*/
 
 function Disclaimer() {
   const [modalIsOpen, setIsOpen] = React.useState(true)
@@ -36,7 +25,7 @@ function Disclaimer() {
   }
 
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles} contentLabel="Disclaimer" ariaHideApp={false}>
+    <Modal isOpen={modalIsOpen} style={style} contentLabel="Disclaimer" ariaHideApp={false}>
       <AppBar color="secondary">
         <Toolbar>
           <Typography variant="h6">

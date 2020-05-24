@@ -1,7 +1,6 @@
 import React from "react"
 import d3_timeseries from "./timeseries/d3_timeseries"
 import Button from '@material-ui/core/Button';
-import styled from "@emotion/styled"
 import HelpIcon from '@material-ui/icons/Help';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
@@ -53,7 +52,7 @@ class ChartComponent extends React.Component {
         series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous,false);
         series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate,false);
 
-        if (this.state.show_cases && !this.state.show_ci && series_counter==1){
+        if (this.state.show_cases && !this.state.show_ci && series_counter === 1){
             series_counter += this.addSeries(chart, 'MaxHerd_immunity', 'Herd immunity', '#000000', this.state.show_cases,true);
             series_counter += this.addSeries(chart, 'Herd_immunity', 'Instantaneous herd immunity', '#888888', this.state.show_cases,false);
 
@@ -156,14 +155,14 @@ class ChartComponent extends React.Component {
         return (
             <div id="chart-area">
                 <ButtonGroup> 
-                    <Button id="chart-help" variant="contained"  style={{"font-size": "12px"}} color="primary" onClick={() => this.handleHelp()}><HelpIcon /></Button>
-                    <Button id="show-cases" variant="contained" style={{"font-size": "12px"}} color={this.state.show_cases ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-cases")}>Total cases</Button>
-                    <Button id="show-hospital" variant="contained" style={{"font-size": "12px"}} color={this.state.show_hospital ? "primary" : "default"}onClick={(e) => this.handleToggle("toggle-hospital")}>All hospitalizations</Button>
-                    <Button id="show-critical" variant="contained" style={{"font-size": "12px"}} color={this.state.show_critical ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-critical")}>Critical hospitalizations</Button>
-                    <Button id="show-deaths" variant="contained" style={{"font-size": "12px"}} color={this.state.show_deaths ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-deaths")}>Total deaths</Button>
-                    <Button id="show-infectuous" variant="contained" style={{"font-size": "12px"}} color={this.state.show_infectuous ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-infectuous")}>Infectious Cases</Button>
-                    <Button id="show-rate" variant="contained" style={{"font-size": "12px"}} color={this.state.show_rate ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-rate")}>Reproduction rate</Button>
-                    <Button id="show-ci" variant="contained" style={{"font-size": "12px"}} color="secondary" onClick={(e) => this.handleToggle("toggle-ci")}>{this.state.show_ci ? 'HIDE CONFIDENCE INTERVALS' : 'SHOW CONFIDENCE INTERVALS'}</Button>
+                    <Button id="chart-help" variant="contained"  style={{"fontSize": "12px"}} color="primary" onClick={() => this.handleHelp()}><HelpIcon /></Button>
+                    <Button id="show-cases" variant="contained" style={{"fontSize": "12px"}} color={this.state.show_cases ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-cases")}>Total cases</Button>
+                    <Button id="show-hospital" variant="contained" style={{"fontSize": "12px"}} color={this.state.show_hospital ? "primary" : "default"}onClick={(e) => this.handleToggle("toggle-hospital")}>All hospitalizations</Button>
+                    <Button id="show-critical" variant="contained" style={{"fontSize": "12px"}} color={this.state.show_critical ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-critical")}>Critical hospitalizations</Button>
+                    <Button id="show-deaths" variant="contained" style={{"fontSize": "12px"}} color={this.state.show_deaths ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-deaths")}>Total deaths</Button>
+                    <Button id="show-infectuous" variant="contained" style={{"fontSize": "12px"}} color={this.state.show_infectuous ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-infectuous")}>Infectious Cases</Button>
+                    <Button id="show-rate" variant="contained" style={{"ffontSize": "12px"}} color={this.state.show_rate ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-rate")}>Reproduction rate</Button>
+                    <Button id="show-ci" variant="contained" style={{"fontSize": "12px"}} color="secondary" onClick={(e) => this.handleToggle("toggle-ci")}>{this.state.show_ci ? 'HIDE CONFIDENCE INTERVALS' : 'SHOW CONFIDENCE INTERVALS'}</Button>
                 </ButtonGroup>
                 <OutputTutorial run={this.state.outputTutorial} callback={this.callbackHelp} />
                 <div id="chart"></div>

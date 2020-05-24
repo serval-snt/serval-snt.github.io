@@ -275,7 +275,6 @@ constructor(props) {
             data_json:df,
             loading:false
         })
-        console.log(res.data.path,this.state)
     })
   }
 
@@ -308,7 +307,7 @@ constructor(props) {
             <HeaderAuthors>By Serval & Trux research groups @ SnT, University of Luxembourg</HeaderAuthors>
             <InputTutorial run={this.state.inputTutorial} callback={this.callbackHelpMeasure} />
           </Grid>
-            <Grid id="covid-form" item xs={4}>
+            <Grid id="covid-form" item sm={12} lg={4}>
                 <AppBar position="static">
                   <Toolbar variant="dense">
                     <div className={classes.left}>
@@ -360,7 +359,7 @@ constructor(props) {
                     <FormHelperText id="covid-country-selection">Select a country to run your simulation in</FormHelperText>
                 </FormControl>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item sm={12} lg={8}>
                 {this.state.loading &&
                 <div
                  style={{
