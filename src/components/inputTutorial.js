@@ -89,7 +89,7 @@ class InputTutorial extends Component {
                 Date at which the new value for the type of activity selected
                 should be set. There is no concept of an end date, and to end a
                 measure, create a new row for the same type of activity with a
-                different value.",
+                different value.
               </React.Fragment>
             ),
           },
@@ -99,11 +99,11 @@ class InputTutorial extends Component {
             title: "Value",
             content: (
               <React.Fragment>
-                "The value represents the activity relative to a baseline which
+                The value represents the activity relative to a baseline which
                 is the median value, for the corresponding day of the week,
                 during the 5-week period starting on January 3, 2020 and ending
-                on Febrary 6, 2020. A value of 100% represent that baseline
-                value; a value lower than 100% represent a decrease of activity
+                on Febrary 6, 2020. A value of 100% represents that baseline
+                value; a value lower than 100% represents a decrease of activity
                 (with 0% meaning complete stop of the activity); and a value
                 over 100% represents an increase of the activity relative to the
                 baseline.
@@ -179,10 +179,15 @@ class InputTutorial extends Component {
             title: "Country Selection",
             content: (
               <React.Fragment>
-                Finally, in its current form, the prediction tool only work country by 
-                country, making a strong assumption on the fact that all borders are closed.
-                Therefore, the total pool for each simulation is the total population of people
-                leaving in the country at the beginning of the simulation.
+                Finally, in its current form, the prediction tool only work
+                country by country, making a strong assumption on the fact that
+                all borders are closed. Therefore, the total pool for each
+                simulation is the total population of people leaving in the
+                country at the beginning of the simulation.{" "}
+                <strong>Note</strong> that for some countres the mobitlity
+                dataset is not representative of the population because of the
+                low market share of Android and/or the low usage of shared GPS
+                data on Android devices.
               </React.Fragment>
             ),
           },

@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "@emotion/styled"
 
-
 const Content = styled.div`
   margin: 0 auto;
   max-width: 860px;
@@ -17,7 +16,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Content>
-    <p>
+      <p>
         A team at the University of Luxembourg’s Interdisciplinary Centre for
         Security, Reliability and Trust (SnT), led by SnT Vice-Director Yves Le
         Traon, has developed an online tool to help inform COVID-19 exit
@@ -27,10 +26,10 @@ const IndexPage = () => (
         the world. The tool works by using machine learning techniques to
         analyse public data and deliver hypothetical projections of how
         different isolation measures will impact the spread of COVID-19. The
-        intention is to make it possible for experts and governments around the
-        world to analyse how diverse exit strategies will impact the spread of
-        coronavirus in a six-month timeframe. Four different activity areas are
-        given as variables: workplaces, outdoor activities, public
+        intention is to make it possible for experts and intersted people around
+        the world to analyse how diverse exit strategies will impact the spread
+        of coronavirus in a six-month timeframe. Four different activity areas
+        are given as variables: workplaces, outdoor activities, public
         transportation, and retail. The tool uses data that is publicly
         available, from the Google COVID-19 dataset, to create its predictions.
         A user is able to understand how policies related to each activity

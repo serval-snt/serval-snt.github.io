@@ -22,11 +22,11 @@ class OutputTutorial extends Component {
             title: "Cummulated number of cases",
             content: (
               <React.Fragment>
-                This button controls the visibility of the cumulated number of
-                cases curve predicted by the model. This is the sum of all the
-                people that were infected by the virus (i.e. that would test
-                positive) with or without exhibiting the symptoms. When it is
-                the only value active, the curves for herd himunity are
+                This button displays the cumulated number of cases curve
+                predicted by the model. This is the sum of all the people that
+                were infected by the virus (i.e. that would test positive) with
+                or without exhibiting the symptoms. When it is the only value
+                active, the curves for <strong>herd himunity</strong> are
                 displayed as well. This value represent the number of people
                 that have to be infected to be able to give a protection
                 (prevent the spread of a virus) to those who were not yet
@@ -54,13 +54,13 @@ class OutputTutorial extends Component {
             title: "Number of people in hospitals for each day",
             content: (
               <React.Fragment>
-                This button controls the visibility of the curve for the number
-                people hospitalized predicted by the model. This value represent
-                the number of hospitalized people for each day. Unlike the
-                number of cases, this value is not cumulative. This figure
-                represent all people in hospitals regardless of their severity
-                and is portion of the number of cases for which the patient
-                developed symptoms requiring their admission to a hospital.
+                This button displays the curve for the number people
+                hospitalized predicted by the model. This value represent the
+                number of hospitalized people for each day. Unlike the number of
+                cases, this value is not cumulative. This figure represent all
+                people in hospitals regardless of their severity and is portion
+                of the number of cases for which the patient developed symptoms
+                requiring their admission to a hospital.
               </React.Fragment>
             ),
           },
@@ -69,9 +69,9 @@ class OutputTutorial extends Component {
             title: "Number of hospitalized people in critical condition",
             content: (
               <React.Fragment>
-                This button controls the visibility of the curve for the number
-                people hospitalized in critical condition predicted by the model.
-                This number is a portion of hospitalized people that developped 
+                This button displays the curve for the number people
+                hospitalized in critical condition predicted by the model. This
+                number is a portion of hospitalized people that developped
                 severe syndrome, leading their state to critical.
               </React.Fragment>
             ),
@@ -81,11 +81,11 @@ class OutputTutorial extends Component {
             title: "Number of death due to COVID-19",
             content: (
               <React.Fragment>
-                This button controls the visibility of the curve for the number
-                of cumulated death due to COVID-19 predicted by the model. This
-                number is the proportion of people infected by the virus for which
-                the outcome is fatal, thus, it is based on the mortality index of
-                the disease.
+                This button displays the curve for the number of cumulated death
+                due to COVID-19 predicted by the model. This number is the
+                proportion of people infected by the virus for which the outcome
+                is fatal, thus, it is based on the mortality index of the
+                disease.
               </React.Fragment>
             ),
           },
@@ -96,9 +96,9 @@ class OutputTutorial extends Component {
               <React.Fragment>
                 This button controls the visibility of the curve for the number
                 of infectuous people for each day predicted by the model. Being
-                contaminated doesn't mean that the virus can be transmitted. This
-                value is computed is based on the epidemiologic characteristics of the
-                COVID-19 and the number of cases.
+                contaminated doesn't mean that the virus can be transmitted.
+                This value is computed is based on the epidemiologic
+                characteristics of the COVID-19 and the number of cases.
               </React.Fragment>
             ),
           },
@@ -107,10 +107,11 @@ class OutputTutorial extends Component {
             title: "Daily transmission rate",
             content: (
               <React.Fragment>
-                The effective reproductive number (R) is the average number of secondary
-                cases per infectious case in a population made up of both susceptible and 
-                non-susceptible hosts. If R &gt; 1, the number of cases will increase, such as 
-                at the start of an epidemic. When R = 1, the disease is endemic, and where R &lt; 1 
+                The effective reproductive number (R) is the average number of
+                secondary cases per infectious case in a population made up of
+                both susceptible and non-susceptible hosts. If R &gt; 1, the
+                number of cases will increase, such as at the start of an
+                epidemic. When R = 1, the disease is endemic, and where R &lt; 1
                 there is be a decline in the number of cases.
               </React.Fragment>
             ),
@@ -120,13 +121,13 @@ class OutputTutorial extends Component {
             title: "Error over the measures",
             content: (
               <React.Fragment>
-                All the data presented so far were built using the combination of an
-                epidemiologic model (SEIR) and a machine learning model. However, each
-                value for the transmission rate predicted by the model is tainted by an
-                incertainty, and this button allows to visualize how the incertainty 
-                computed for the transmission rate value is affecting each prediction.
-                Hence, the uncertainty can be combined with each of the value presetned 
-                earlier.
+                All the data presented so far were built using the combination
+                of an epidemiologic model (SEIR) and a machine learning model.
+                However, each value for the transmission rate predicted by the
+                model is tainted by an incertainty, and this button allows to
+                visualize how the incertainty computed for the transmission rate
+                value is affecting each prediction. Hence, the uncertainty can
+                be combined with each of the value presetned earlier.
               </React.Fragment>
             ),
           },
