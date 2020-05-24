@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
+  max-width: 1280px;
   padding: 1.45rem 1.0875rem;
   font-size: 1.2rem;
   text-align: justify;
