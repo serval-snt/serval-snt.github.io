@@ -133,7 +133,11 @@ constructor(props) {
     super(props);
     this.state = {
         countryName: "Luxembourg",
-        rows: [],
+        rows: [
+          {id:1, measure:"Workplaces",date:"2020-05-11",value:70},
+          {id:3, measure:"Parks & outdoor activities",date:"2020-05-11",value:70},
+          {id:4, measure:"Public transport",date:"2020-05-11",value:70},
+        ],
         selectedIndexes: [],
         increment:0,
         reproduction_path:"",
