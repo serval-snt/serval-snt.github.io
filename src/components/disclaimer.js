@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 
 const style = {
   content: {
-    top: "50%",
+    top: "200px",
     left: "50%",
     bottom: "auto",
     marginRight: "-50%",
