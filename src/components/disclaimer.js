@@ -8,13 +8,14 @@ import Button from '@material-ui/core/Button';
 
 const style = {
   content: {
-    top: "200px",
+    top: "50%",
     left: "50%",
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     textAlign: "justify",
   },
+  overlay: {zIndex: 9999}
 }
 
 function Disclaimer() {
