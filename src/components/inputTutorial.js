@@ -216,6 +216,7 @@ class InputTutorial extends Component {
     return (
       <ReactJoyride
         run={this.state.run}
+        styles={{ options: {zIndex:9999}}}
         steps={this.state.steps}
         callback={this.handleJoyrideCallback}
         disableBeacon

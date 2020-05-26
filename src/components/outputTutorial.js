@@ -161,6 +161,7 @@ class OutputTutorial extends Component {
       <ReactJoyride
         run={this.state.run}
         steps={this.state.steps}
+        styles={{ options: {zIndex:9999}}}
         callback={this.handleJoyrideCallback}
         disableBeacon
         disableOverlayClose
