@@ -15,7 +15,7 @@ const style = {
     transform: "translate(-50%, -50%)",
     textAlign: "justify",
   },
-  overlay: {zIndex: 9999}
+  overlay: { zIndex: 9999 }
 }
 
 function Disclaimer() {
@@ -35,17 +35,18 @@ function Disclaimer() {
         </Toolbar>
       </AppBar>
       <Toolbar />
-        <p>
-        The present model aims at informing researchers and policy-makers by
-        evaluating Non Pharmaceutical Interventions impacts and simulating exit
-        scenarios. It is not intended to faithfully represent specific countries
-        nor to fully reproduce the epidemic complexity within societies. Any
-        conclusion should be carefully interpreted by experts, and the
-        feasibility of tested scenarios should be discussed before reaching
-        consensus.
+      <p>
+        The present simulator models non pharmaceutical interventions and their impact on exit scenarios. 
+        It relies on publicly available information that may not faithfully represent specific countries 
+        and that does not fully reproduce the epidemic complexity within societies. It is an information 
+        tool illustrating the impact of certain scenarios. Its output should be carefully reviewed and 
+        interpreted by experts. It is not a tool generating policy recommendations.
+        The University of Luxembourg / SnT decline any responsibility for the way the website and its 
+        associated services and tools are used. The University of Luxembourg / SnT cannot guarantee that 
+        the information and/or data provided are complete, correct or applicable.
         </p>
 
-        <Button color="primary" variant="contained" onClick={closeModal} >
+      <Button color="primary" variant="contained" onClick={closeModal} >
         I agree
       </Button>
     </Modal>
