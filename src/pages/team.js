@@ -36,7 +36,7 @@ const IndexPage = () => {
                 <li>Dr Andrey BOYSTOV</li>
                 <li>Dr Renzo DEGIOVANNI</li>
                 <li>Dr Sankalp GHATPANDE</li>
-                <li>Yuejun GUO</li>
+                <li>Dr Yuejun GUO</li>
                 <li>Dr Sarra HABCHI</li>
                 <li>Dr Médéric HURIER</li>
                 <li>Dr Ludovic MOULINE</li>
