@@ -1,6 +1,7 @@
 {
   "main.js": "render-page.js",
   "main.js.map": "render-page.js.map",
+  "static/serval.svg": "static/serval-502e3ac045e0abff79abb0a5c47beb80.svg",
   "static/snt.logo.png": "static/snt.logo-6d22638b3bad7751969194e790274342.png",
   "static/uni.lu.logo.png": "static/uni.lu.logo-67f9342358e4c40d6dce184128db20b0.png"
 }
