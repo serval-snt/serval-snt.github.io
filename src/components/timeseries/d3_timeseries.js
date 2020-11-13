@@ -298,8 +298,8 @@ export default function ()  {
     x = xscale.invert(x);
     mousevline.datum({x: x, visible: true});
     mousevline.update();
-    updatefocusRing(x);
-    updateTip(x);
+    // updatefocusRing(x);
+    // updateTip(x);
   }
   function mouseOut() {
     mousevline.datum({x: null, visible: false});
