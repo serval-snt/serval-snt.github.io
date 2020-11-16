@@ -24,7 +24,7 @@ class ChartComponent extends React.Component {
             show_hospital: true,
             show_critical: true,
             show_deaths: true,
-            show_infectuous: true,
+            show_infectuous: false,
             show_rate:true,
             show_ci: false
         };
@@ -53,11 +53,11 @@ class ChartComponent extends React.Component {
         series_counter += this.addSeries(chart, 'SimulationInfectious', 'Infectious', '#b5b5b5', this.state.show_infectuous,false);
         series_counter += this.addSeries(chart, 'R', 'Reproduction rate', '#420042', this.state.show_rate,false);
 
-        if (this.state.show_cases && !this.state.show_ci && series_counter==1){
-            series_counter += this.addSeries(chart, 'MaxHerd_immunity', 'Herd immunity', '#000000', this.state.show_cases,true);
-            series_counter += this.addSeries(chart, 'Herd_immunity', 'Instantaneous herd immunity', '#888888', this.state.show_cases,false);
-
-        }
+        // if (this.state.show_cases && !this.state.show_ci && series_counter==1){
+        //     series_counter += this.addSeries(chart, 'MaxHerd_immunity', 'Herd immunity', '#000000', this.state.show_cases,true);
+        //     series_counter += this.addSeries(chart, 'Herd_immunity', 'Instantaneous herd immunity', '#888888', this.state.show_cases,false);
+        //
+        // }
 
         if(series_counter === 0){
             console.log("empty series")
@@ -161,7 +161,7 @@ class ChartComponent extends React.Component {
                     <Button id="show-hospital" variant="contained" style={{"font-size": "12px"}} color={this.state.show_hospital ? "primary" : "default"}onClick={(e) => this.handleToggle("toggle-hospital")}>All hospitalizations</Button>
                     <Button id="show-critical" variant="contained" style={{"font-size": "12px"}} color={this.state.show_critical ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-critical")}>Critical hospitalizations</Button>
                     <Button id="show-deaths" variant="contained" style={{"font-size": "12px"}} color={this.state.show_deaths ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-deaths")}>Total deaths</Button>
-                    <Button id="show-infectuous" variant="contained" style={{"font-size": "12px"}} color={this.state.show_infectuous ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-infectuous")}>Infectious Cases</Button>
+                    {/*<Button id="show-infectuous" variant="contained" style={{"font-size": "12px"}} color={this.state.show_infectuous ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-infectuous")}>Infectious Cases</Button>*/}
                     <Button id="show-rate" variant="contained" style={{"font-size": "12px"}} color={this.state.show_rate ? "primary" : "default"} onClick={(e) => this.handleToggle("toggle-rate")}>Reproduction rate</Button>
                     <Button id="show-ci" variant="contained" style={{"font-size": "12px"}} color="secondary" onClick={(e) => this.handleToggle("toggle-ci")}>{this.state.show_ci ? 'HIDE CONFIDENCE INTERVALS' : 'SHOW CONFIDENCE INTERVALS'}</Button>
                 </ButtonGroup>
