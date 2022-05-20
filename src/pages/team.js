@@ -6,8 +6,9 @@ import SEO from "../components/seo"
 
 const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
+  max-width: 1080px;
   padding: 1.45rem 1.0875rem;
+  text-align: center;
 `
 
 const Row = styled.div`
@@ -18,55 +19,93 @@ const Column = styled.div `
   flex: 50%;
 `
 
+const Center = styled.div `
+  text-align: center;
+  font-size: 1.5em
+`
+
+const List = styled.ul `
+  list-style: none;
+`
+
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Team" />
       <Content>
             <h1>Team</h1>
+            <Center>🇦🇱 🇩🇿 🇦🇷 🇧🇪 🇧🇷 🇨🇲 🇨🇳 🇫🇷 🇩🇪 🇬🇷 🇮🇳 🇮🇹 🇱🇺 🇲🇦 🇲🇽 🇲🇪 🇳🇱 🇳🇬 🇷🇺 🇷🇼 🇰🇷 🇸🇾 🇹🇳</Center>
+            <br />
         <Row>
           <Column>
             <h2>Faculty</h2>
-              <ul>
+              <List>
                 <li>Prof Dr Yves LE TRAON</li>
-              </ul>
-            <h2>Research Associates</h2>
-              <ul>
-                <li>Dr Alexandre BARTEL</li>
-                <li>Dr Andrey BOYSTOV</li>
-                <li>Dr Renzo DEGIOVANNI</li>
-                <li>Dr Sankalp GHATPANDE</li>
-                <li>Yuejun GUO</li>
-                <li>Dr Sarra HABCHI</li>
-                <li>Dr Médéric HURIER</li>
-                <li>Dr Ludovic MOULINE</li>
-                <li>Dr Jérémy ROBERT</li>
-                <li>Dr Imen SAYAR</li>
-                <li>Dr Thierry TITCHEU CHEKAM</li>
-                <li>Dr Kui LIU</li>
-              </ul>
-            </Column>
-          <Column>
+              </List>
             <h2>Research Scientists</h2>
-              <ul>
+              <List>
                 <li>Dr Maxime CORDY</li>
                 <li>Dr Mike PAPADAKIS</li>
-              </ul>
+                <li>Dr Sylvain Kubler</li>
+              </List>
+            <h2>Post Docs</h2>
+              <List>
+                <li>Dr Paul-Lou BENEDICK</li>
+                <li>Dr Renzo DEGIOVANNI</li>
+                <li>Dr Yuejun GUO</li>
+                <li>Dr Matthieu JIMENEZ</li>
+                <li>Dr Sami LAZREG</li>
+                <li>Dr Wei MA</li>
+                <li>Dr Renaud RWEMALIKA</li>
+                <li>Dr Jeongju Sohn</li>
+                <li>Dr Ezekiel SOREMEKUN</li>
+              </List>
+          </Column>
+          <Column>
             <h2>Doctoral Researchers</h2>
-              <ul>
-                <li>Nikolaos ANTONIADIS</li>
-                <li>Paul-Lou BENEDICK</li>
+              <List>
+                <li>Fabien BERNIER</li>
+                <li>Luiz DE ALENCAR CARVALHO</li>
+                <li>Salijona DYRMISHI</li>
                 <li>Aayush GARG</li>
                 <li>Salah GHAMIZI</li>
                 <li>Martin GUBRI</li>
                 <li>Guillaume HABEN</li>
+                <li>Qiang HU</li>
                 <li>Ahmed KHANFIR</li>
-                <li>Niklas KOLBE</li>
-                <li>Wei MA</li>
+                <li>Sami LAZREG</li>
                 <li>Milos OJDANIC</li>
-                <li>Renaud RWEMALIKA</li>
+                <li>Yu PEI</li>
+                <li>Marcelo Luis RUIZ RODRIGUEZ</li>
                 <li>Xavier SCHMITT</li>
-              </ul>
+                <li>Thibault SIMONETTO</li>
+                <li>Badr SOUANI</li>
+                <li>Stefanos STAVROPOULOS</li>
+                <li>Hilal TAHA</li>
+                <li>Valeria TROMBETTA</li>
+                <li>Olivier ZEYEN</li>
+              </List>
+          </Column>
+          <Column>
+            <h2>Engineers</h2>
+              <List>
+                <li>Adriano FRANCI</li>
+                <li>Sankalp GHATPANDE</li>
+              </List>
+            <h2>Alumni</h2>
+              <List>
+                <li>Dr Nikolaos ANTONIADIS</li>
+                <li>Dr Alexandre BARTEL</li>
+                <li>Dr Andrey BOYSTOV</li>
+                <li>Dr Sarra HABCHI</li>
+                <li>Dr Niklas KOLBE</li>
+                <li>Dr Kui LIU</li>
+                <li>Dr Ludovic MOULINE</li>
+                <li>Dr Jérémy ROBERT</li>
+                <li>Dr Imen SAYAR</li>
+                <li>Dr Thierry TITCHEU CHEKAM</li>
+                <li>and many more...</li>
+              </List>
             </Column>
           </Row>
       </Content>
