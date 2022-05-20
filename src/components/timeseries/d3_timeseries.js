@@ -58,6 +58,8 @@ export default function ()  {
   xscale.setformat = xscale.tickFormat();
 
   var _tooltip_value = function(d) {
+    console.log(d);
+    console.log(d.aes.y);
     if(d.aes.ci_down && d.aes.ci_up){
       return yscale.setformat(d.item[d.aes.y]) + ' (' + yscale.setformat(d.item[d.aes.ci_down])  + ' - ' + yscale.setformat(d.item[d.aes.ci_up]) + ')';
     }
@@ -73,7 +75,7 @@ export default function ()  {
       return '<tr><td style="color:' + d.options.color + '">' + d.options.label + ' </td>' +
   '<td style="color:#333333;text-align:right">' + _tooltip_value(d) + '</td></tr>';
     }).join('') + '</table>';
-
+    console.log(d3.timeDay(date));
     return '<h4>' + xscale.setformat(d3.timeDay(date)) + '</h4>' + spans;
   };
 
@@ -263,7 +265,7 @@ export default function ()  {
         return {item: s.find(xdate),
           aes: s.aes, options: s.options};
       });
-
+      // console.log(xdate);
       tooltipDiv.style('opacity', 0.9)
         .style('left', (margin.left + 5 + xscale(xdate)) + 'px')
         .style('top', "0px")
@@ -299,6 +301,7 @@ export default function ()  {
     mousevline.datum({x: x, visible: true});
     mousevline.update();
     updatefocusRing(x);
+    // console.log("Date is : "+x);
     updateTip(x);
   }
   function mouseOut() {
