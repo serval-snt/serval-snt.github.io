@@ -51,6 +51,7 @@ const IndexPage = () => {
             <h2>Post Docs</h2>
               <List>
                 <li>Dr Renzo DEGIOVANNI</li>
+                <li>Dr Salah GHAMIZI</li>
                 <li>Dr Yu-Lin HUANG</li>
                 <li>Dr Matthieu JIMENEZ</li>
                 <li>Dr Sami LAZREG</li>
@@ -66,12 +67,10 @@ const IndexPage = () => {
                 <li>Luiz DE ALENCAR CARVALHO</li>
                 <li>Salijona DYRMISHI</li>
                 <li>Aayush GARG</li>
-                <li>Salah GHAMIZI</li>
                 <li>Martin GUBRI</li>
                 <li>Guillaume HABEN</li>
                 <li>Qiang HU</li>
                 <li>Ahmed KHANFIR</li>
-                <li>Sami LAZREG</li>
                 <li>Milos OJDANIC</li>
                 <li>Yu PEI</li>
                 <li>Marcelo Luis RUIZ RODRIGUEZ</li>
