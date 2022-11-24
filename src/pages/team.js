@@ -34,7 +34,7 @@ const IndexPage = () => {
       <SEO title="Team" />
       <Content>
             <h1>Team</h1>
-            <Center>🇦🇱 🇩🇿 🇦🇷 🇧🇪 🇧🇷 🇨🇲 🇨🇳 🇫🇷 🇩🇪 🇬🇷 🇮🇳 🇮🇹 🇱🇺 🇲🇦 🇲🇽 🇲🇪 🇳🇱 🇳🇬 🇷🇺 🇷🇼 🇰🇷 🇸🇾 🇹🇳</Center>
+            <Center>🇦🇱 🇩🇿 🇦🇷 🇧🇪 🇧🇷 🇨🇲 🇨🇳 🇫🇷 🇩🇪 🇬🇷 🇮🇳 🇮🇹 🇱🇺 🇲🇦 🇲🇽 🇲🇪 🇳🇱 🇳🇬 🇷🇺 🇷🇼 🇰🇷 🇸🇾 🇹🇼 🇹🇳</Center>
             <br />
         <Row>
           <Column>
@@ -46,18 +46,16 @@ const IndexPage = () => {
               <List>
                 <li>Dr Maxime CORDY</li>
                 <li>Dr Mike PAPADAKIS</li>
-                <li>Dr Sylvain Kubler</li>
+                <li>Dr Sylvain KUBLER</li>
               </List>
             <h2>Post Docs</h2>
               <List>
-                <li>Dr Paul-Lou BENEDICK</li>
                 <li>Dr Renzo DEGIOVANNI</li>
-                <li>Dr Yuejun GUO</li>
+                <li>Dr Yu-Lin HUANG</li>
                 <li>Dr Matthieu JIMENEZ</li>
                 <li>Dr Sami LAZREG</li>
-                <li>Dr Wei MA</li>
-                <li>Dr Renaud RWEMALIKA</li>
-                <li>Dr Jeongju Sohn</li>
+                <li>Dr Guilain LEDUC</li>
+                <li>Dr Jeongju SOHN</li>
                 <li>Dr Ezekiel SOREMEKUN</li>
               </List>
           </Column>
@@ -87,21 +85,25 @@ const IndexPage = () => {
               </List>
           </Column>
           <Column>
-            <h2>Engineers</h2>
+            {/* <h2>Engineers</h2>
               <List>
-                <li>Adriano FRANCI</li>
-                <li>Sankalp GHATPANDE</li>
-              </List>
+              </List> */}
             <h2>Alumni</h2>
               <List>
                 <li>Dr Nikolaos ANTONIADIS</li>
                 <li>Dr Alexandre BARTEL</li>
+                <li>Dr Paul-Lou BENEDICK</li>
                 <li>Dr Andrey BOYSTOV</li>
+                <li>Adriano FRANCI</li>
+                <li>Sankalp GHATPANDE</li>
+                <li>Dr Yuejun GUO</li>
                 <li>Dr Sarra HABCHI</li>
                 <li>Dr Niklas KOLBE</li>
                 <li>Dr Kui LIU</li>
+                <li>Dr Wei MA</li>
                 <li>Dr Ludovic MOULINE</li>
                 <li>Dr Jérémy ROBERT</li>
+                <li>Dr Renaud RWEMALIKA</li>
                 <li>Dr Imen SAYAR</li>
                 <li>Dr Thierry TITCHEU CHEKAM</li>
                 <li>and many more...</li>
