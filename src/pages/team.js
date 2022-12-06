@@ -56,6 +56,7 @@ const IndexPage = () => {
                 <li>Dr Matthieu JIMENEZ</li>
                 <li>Dr Sami LAZREG</li>
                 <li>Dr Guilain LEDUC</li>
+                <li>Dr Julien POLGE</li>
                 <li>Dr Jeongju SOHN</li>
                 <li>Dr Ezekiel SOREMEKUN</li>
               </List>
@@ -76,7 +77,6 @@ const IndexPage = () => {
                 <li>Yu PEI</li>
                 <li>Anna PRESCIUTTINI</li>
                 <li>Marcelo Luis RUIZ RODRIGUEZ</li>
-                <li>Xavier SCHMITT</li>
                 <li>Thibault SIMONETTO</li>
                 <li>Badr SOUANI</li>
                 <li>Stefanos STAVROPOULOS</li>
