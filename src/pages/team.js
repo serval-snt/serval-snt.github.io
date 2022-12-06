@@ -70,9 +70,11 @@ const IndexPage = () => {
                 <li>Martin GUBRI</li>
                 <li>Guillaume HABEN</li>
                 <li>Qiang HU</li>
+                <li>Dorian JOUBAUD</li>
                 <li>Ahmed KHANFIR</li>
                 <li>Milos OJDANIC</li>
                 <li>Yu PEI</li>
+                <li>Anna PRESCIUTTINI</li>
                 <li>Marcelo Luis RUIZ RODRIGUEZ</li>
                 <li>Xavier SCHMITT</li>
                 <li>Thibault SIMONETTO</li>
