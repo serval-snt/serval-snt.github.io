@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `SerVal`,
-    description: `Website presenting our team, our research and our projects`,
+    description: `SerVal SnT research team - University of Luxembourg`,
     author: `@GuillaumeHaben`,
   },
   plugins: [
