@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
-
 code {
   background-color: hsla(0, 0%, 0%, 0.04);
 }
 
 body {
   margin: 0;
-  font-family: 'Montserrat';
-  letter-spacing: -1px;
+  font-family: 'Nunito', 'Avenir', 'Helvetica', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
