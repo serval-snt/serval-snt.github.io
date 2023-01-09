@@ -86,9 +86,12 @@ const IndexPage = () => {
               </List>
           </Column>
           <Column>
-            {/* <h2>Engineers</h2>
+            <h2>R&D Specialists</h2>
               <List>
-              </List> */}
+                <li>Dr Yu-Lin HUANG</li>
+                <li>Dr Guilain LEDUC</li>
+                <li>Luc STEBENS</li>
+              </List>
             <h2>Alumni</h2>
               <List>
                 <li>Dr Nikolaos ANTONIADIS</li>
@@ -99,13 +102,13 @@ const IndexPage = () => {
                 <li>Sankalp GHATPANDE</li>
                 <li>Dr Yuejun GUO</li>
                 <li>Dr Sarra HABCHI</li>
-                <li>Dr Niklas KOLBE</li>
-                <li>Dr Kui LIU</li>
+                {/* <li>Dr Niklas KOLBE</li> */}
+                {/* <li>Dr Kui LIU</li> */}
                 <li>Dr Wei MA</li>
                 <li>Dr Ludovic MOULINE</li>
                 <li>Dr Jérémy ROBERT</li>
                 <li>Dr Renaud RWEMALIKA</li>
-                <li>Dr Imen SAYAR</li>
+                {/* <li>Dr Imen SAYAR</li> */}
                 <li>Dr Thierry TITCHEU CHEKAM</li>
                 <li>and many more...</li>
               </List>
