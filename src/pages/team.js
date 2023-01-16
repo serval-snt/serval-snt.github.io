@@ -64,6 +64,7 @@ const IndexPage = () => {
           <Column>
             <h2>Doctoral Researchers</h2>
               <List>
+                <li>Amal AKLI</li>
                 <li>Fabien BERNIER</li>
                 <li>Luiz DE ALENCAR CARVALHO</li>
                 <li>Salijona DYRMISHI</li>
@@ -73,6 +74,7 @@ const IndexPage = () => {
                 <li>Qiang HU</li>
                 <li>Dorian JOUBAUD</li>
                 <li>Ahmed KHANFIR</li>
+                <li>Chaimaa MEDJADJI</li>
                 <li>Milos OJDANIC</li>
                 <li>Yu PEI</li>
                 <li>Anna PRESCIUTTINI</li>
