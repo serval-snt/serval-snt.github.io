@@ -22,18 +22,18 @@ Before pushing your changes to GitHub, you might want to test the site locally.
 
 ### Prerequisites :gear:
 
-1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).  
+1. **Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/):**  
    - Debian/Ubuntu: `sudo apt-get install ruby-full build-essential zlib1g-dev`
    - Fedora: `sudo dnf install ruby ruby-devel zlib-devel`
    - macOS: `brew install ruby`
 
-2. Install Jekyll and bundler gems. Open your terminal and run:
+2. **Install Jekyll and bundler gems:**
 
 ```bash
 gem install jekyll bundler
 ```
 
-3. In this repository, run:
+3. **In this repository, run:**
 
 ```bash
 bundle install
