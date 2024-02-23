@@ -8,8 +8,8 @@
 </h1>
 
 Repository consists in 2 branches.
-* **`Master`**: Generated static files to show using github pages.
-* **`Develop`**: The Gatsby project you want to work on.
+* **`gatsby-deploy`**: Generated static files to show using github pages.
+* **`gatsby-dev`**: The Gatsby project you want to work on.
 ___
 
 ## 🚀 Quick start
@@ -113,4 +113,4 @@ Once you made changes you want to publish,
 
 1. Commit the changes to the `develop` branch
 
-2. Run `npm run deploy` from the `develop` branch to update the static contents on the `master` branch
+2. Run `npm run deploy` from the `develop` branch to update the static contents on the `gatsby-deploy` branch
