@@ -1,6 +1,4 @@
-<center>
-<h1>Serval website using Jekyll 💊</h1>
-</center>
+<h1 align="center">Serval website using Jekyll 💊</h1>
 
 
 ## How it works :monocle_face:
