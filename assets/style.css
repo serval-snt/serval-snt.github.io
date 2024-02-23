@@ -1,0 +1,209 @@
+/* Roboto = sans-serif font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+/* JetBrains Mono = monospace font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+/* Martian Mono */
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500;700&display=swap');
+/* Abel */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+html {
+/*    font-family: 'Roboto', sans-serif;*/
+    font-family: 'Abel', sans-serif;
+    /* font-family: 'JetBrains Mono', monospace; */
+    /* font-family: 'Martian Mono', monospace; */
+    color: #333;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    background: #fafafb;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+.nav-bar {
+    background-color: white;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0px 0px 0.8em rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    margin: 0.5em 1.5em;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #111;
+}
+
+.nav-link::after {
+    content: "";
+    bottom: -4px;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    background: #999;
+    transition: 0.3s;
+    width: 0%;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.main {
+    display: flex;
+    flex-flow: column;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    padding: 3em;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 60em;
+    border-radius: 2em;
+    /* background: white; */
+    /* box-shadow: 0 0 2em rgba(0, 0, 0, 0.1); */
+}
+
+#serval-logo {
+    width: 100%;
+    max-width: 12em;
+    margin: 8em auto;
+    display: block;
+}
+
+#expertise-container {
+    width: fit-content;
+    margin-bottom: 8em;
+}
+
+.expertise {
+    position: relative;
+    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+    transition: 0.3s;
+}
+
+.expertise h2, .expertise p {
+    margin: 0.8em 0;
+}
+
+.expertise h2 {
+    font-size: 22px;
+}
+
+.expertise::before {
+    background: radial-gradient(
+        50em circle at var(--mouse-x) var(--mouse-y),
+        rgba(24, 38, 62, 0.05),
+        transparent 40%
+    );
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.expertise:hover::before {
+    opacity: 1;
+}
+
+.expertise > :first-child {
+    color: #aaa;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 1em;
+}
+
+.expertise > :first-child .material-symbols-outlined {
+    font-size: 3em;
+}
+
+.expertise > :last-child {
+    text-align: left;
+}
+
+.expertise > :last-child span {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    background: white;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    margin: 0.25em;
+    transition: 0.3s
+}
+
+.expertise > :last-child span:hover {
+    box-shadow: 0px 0px 0.3em rgba(0, 0, 0, 0.3);
+}
+
+#flags {
+    font-size: 2em;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    margin: 2em 0;
+}
+
+.members ul {
+    list-style: none;
+    padding-left: 1em;
+    font-size: 1.2em;
+}
+
+iframe {
+    width: 100%;
+    max-width: 60em;
+    height: 50em;
+    border: none;
+    border-radius: 1.5em;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em 0;
+}
+
+footer > * {
+    margin: 0 24px;
+}
+
+footer img {
+    max-height: 4em;
+    max-width: 4em;
+}

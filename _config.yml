@@ -1,0 +1,5 @@
+title: Serval - SnT
+collections:
+  pages:
+    output: true
+    permalink: /:path

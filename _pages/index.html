@@ -1,0 +1,52 @@
+---
+layout: default
+title: Home
+---
+
+<img id="serval-logo" src="assets/serval.svg" />
+<h1 id="about">About</h1>
+<p>SerVal (<b>Se</b>curity, <b>R</b>easoning and <b>Val</b>idation) conducts research in security and reliability in software engineering, with a particular focus on AI, data science and decision-making. This research is applied across a variety of domains, including FinTech, energy and industry 4.0. We focus both on fundamental as well as applied research topics, in partnership with public entities and world-class companies.</p>
+<div id="expertise-container">
+    <div class="expertise">
+        <div>
+            <span class="material-symbols-outlined">bug_report</span>
+        </div>
+        <div>
+            <h2>Software Engineering, Analysis and Testing</h2>
+            <p class="keywords"><span>Software maintenance</span><span>Code evolution</span><span>Test generation</span><span>Mutation testing</span><span>Anomaly detection</span><span>Test flakiness</span><span>Debugging</span></p>
+        </div>
+    </div>
+    <div class="expertise">
+        <div>
+            <span class="material-symbols-outlined">neurology</span>
+        </div>
+        <div>
+            <h2>AI, Machine Learning and Data Science</h2>
+            <p class="keywords"><span>Bias and fairness</span><span>Robustness</span><span>Distribution shift</span><span>Adversarial attacks</span><span>Deep learning</span><span>Data imbalance</span><span>Transfer learning</span></p>
+        </div>
+    </div>
+    <div class="expertise">
+        <div>
+            <span class="material-symbols-outlined">check_box</span>
+        </div>
+        <div>
+            <h2>Formal Verification and Optimization</h2>
+            <p class="keywords"><span>Model checking</span><span>Software and system variability</span><span>Cyber-physical systems</span><span>Model-driven engineering</span><span>Design space exploration</span></p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // tracking the mouse position over the expertise cards
+    document.getElementById("expertise-container").onmousemove = e => {
+      for (const card of document.getElementsByClassName("expertise")) {
+        const rect = card.getBoundingClientRect(),
+              x = e.clientX - rect.left,
+              y = e.clientY - rect.top;
+    
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      };
+    }
+</script>
