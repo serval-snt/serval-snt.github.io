@@ -16,6 +16,7 @@ Brief overview of the key folders and files:
 | [`_layouts/default.html`](_layouts/default.html) | The default layout used at every page. Also contains the navigation bar, which you can edit. |
 | [`_config.yml`](_config.yml) | Jekyll website config. |
 | [`Gemfile`](Gemfile) | Ruby gems needed to run it locally. |
+| [`members.py`](members.py) | Python script to retrieve the list of Serval members. |
 
 
 ## Testing Locally :computer:
